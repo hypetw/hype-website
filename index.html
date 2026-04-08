@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HYPE — We Bring The Hype. Creative agency, Cork, Ireland.</title>
+  <meta name="description" content="HYPE is a Cork-based creative agency producing documentaries, fashion, hospitality content, brand films — and AI-enhanced property listings. Stories that inspire. Memories that last." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════ INTRO LOADER (first-visit only) ════════ -->
+  <div id="intro-loader" class="intro-loader" aria-hidden="true">
+    <div class="intro-loader__content">
+      <div class="intro-h">
+        <!-- Left column — 3 red blocks, bottom → top -->
+        <span class="intro-block intro-block--red  intro-block--l1"></span>
+        <span class="intro-block intro-block--red  intro-block--l2"></span>
+        <span class="intro-block intro-block--red  intro-block--l3"></span>
+        <!-- Right column — 3 white blocks that will flip to red -->
+        <span class="intro-block intro-block--right intro-block--r1"></span>
+        <span class="intro-block intro-block--right intro-block--r2"></span>
+        <span class="intro-block intro-block--right intro-block--r3"></span>
+        <!-- Center block — white, fades in during transformation -->
+        <span class="intro-block intro-block--center"></span>
+      </div>
+      <div class="intro-wordmark" aria-hidden="true">HYPE</div>
+    </div>
+  </div>
+
+  <!-- ════════ NAV ════════ -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#" class="hype-lock" aria-label="HYPE Marketing &amp; Media home">
+        <span class="hype-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="32" height="32">
+            <rect x="6"  y="6"  width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="6"  y="38" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="6"  y="70" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="70" y="6"  width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="70" y="38" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="70" y="70" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="38" y="38" width="24" height="24" rx="3" fill="#FFFFFF"/>
+          </svg>
+        </span>
+        <span class="hype-lock__word">HYPE</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#work">Creative</a>
+        <a href="property.html">Property AI</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="nav__cta">
+        Let's Talk
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__head">
+      <span class="hype-lock">
+        <span class="hype-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="28" height="28">
+            <rect x="6" y="6" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="6" y="38" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="6" y="70" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="70" y="6" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="70" y="38" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="70" y="70" width="24" height="24" rx="3" fill="#E63946"/>
+            <rect x="38" y="38" width="24" height="24" rx="3" fill="#FFFFFF"/>
+          </svg>
+        </span>
+        <span class="hype-lock__word">HYPE</span>
+      </span>
+      <button class="nav__burger" id="burger-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-menu__links" aria-label="Mobile">
+      <a href="#work">Work</a>
+      <a href="#work">Creative</a>
+      <a href="property.html">Property AI</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+
+    <div class="hero__logo">
+      <span class="hero__eyebrow">We bring the</span>
+      <h1 class="hero__brand" aria-label="HYPE">
+        <span class="hero__brand-letter" aria-hidden="true">H</span><span class="hero__brand-letter" aria-hidden="true">Y</span><span class="hero__brand-letter" aria-hidden="true">P</span><span class="hero__brand-letter" aria-hidden="true">E</span>
+      </h1>
+      <div class="hero__brand-bar" aria-hidden="true"></div>
+    </div>
+
+    <p class="hero__sub">
+      A Cork-based creative agency producing documentaries, fashion shoots, hospitality content, brand films, and AI-enhanced property listings. <strong>Stories that inspire. Memories that last.</strong>
+    </p>
+
+    <div class="hero__actions">
+      <a href="#work" class="btn btn--primary">
+        See The Work
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#contact" class="btn btn--ghost">Start A Project</a>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">Scroll</div>
+  </section>
+
+  <!-- ════════ 02 — VISUAL SHOWCASE ════════ -->
+  <section class="section showcase" id="work">
+    <div class="container container--wide">
+      <div class="section-head">
+        <div>
+          <span class="label label--accent">01 — The Reel</span>
+          <h2 class="section-title">Stories that inspire.<br/>Memories that <em>last.</em></h2>
+        </div>
+        <p class="section-lede" style="max-width: 36ch; text-align: right;">
+          Documentary, fashion, hospitality, lifestyle. A gallery of recent work from Cork and beyond.
+        </p>
+      </div>
+
+      <div class="reels-grid">
+
+        <button class="reel" type="button" data-video="D394513UH1s" aria-label='Play: Tommy "The Governor" Hyde Documentary'>
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/D394513UH1s/maxresdefault.jpg" alt="" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/D394513UH1s/hqdefault.jpg'"/>
+          <span class="reel__cat">Documentary</span>
+          <div class="reel__meta">
+            <h3 class="reel__title">Tommy &ldquo;The Governor&rdquo; Hyde</h3>
+            <p class="reel__sub">Feature Documentary</p>
+          </div>
+          <span class="reel__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+
+        <button class="reel" type="button" data-video="hW98qmqqSeg" aria-label="Play: Sheena's Boutique Fashion Campaign">
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/hW98qmqqSeg/maxresdefault.jpg" alt="" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/hW98qmqqSeg/hqdefault.jpg'"/>
+          <span class="reel__cat">Fashion Campaign</span>
+          <div class="reel__meta">
+            <h3 class="reel__title">Sheena's Boutique</h3>
+            <p class="reel__sub">Fashion Campaign</p>
+          </div>
+          <span class="reel__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+
+        <button class="reel" type="button" data-video="vxuVWHIOKNI" aria-label="Play: Optica Coutinho Brand Film">
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/vxuVWHIOKNI/maxresdefault.jpg" alt="" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/vxuVWHIOKNI/hqdefault.jpg'"/>
+          <span class="reel__cat">Brand Film</span>
+          <div class="reel__meta">
+            <h3 class="reel__title">&Oacute;ptica Coutinho</h3>
+            <p class="reel__sub">Brand Film</p>
+          </div>
+          <span class="reel__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+
+        <div class="reels-verticals">
+
+        <button class="reel reel--vertical" type="button" data-video="xIB2cftQ0io" aria-label="Play: The Shelbourne Bar — Danu">
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/xIB2cftQ0io/maxresdefault.jpg" alt="" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/xIB2cftQ0io/hqdefault.jpg'"/>
+          <span class="reel__cat">Short</span>
+          <div class="reel__meta">
+            <h3 class="reel__title">The Shelbourne Bar</h3>
+            <p class="reel__sub">Danu &middot; Live Session</p>
+          </div>
+          <span class="reel__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+
+        <button class="reel reel--vertical" type="button" data-video="pr7ALyIDG4o" aria-label="Play: The Elm Tree">
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/pr7ALyIDG4o/maxresdefault.jpg" alt="" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/pr7ALyIDG4o/hqdefault.jpg'"/>
+          <span class="reel__cat">Short</span>
+          <div class="reel__meta">
+            <h3 class="reel__title">The Elm Tree</h3>
+            <p class="reel__sub">Hospitality Short</p>
+          </div>
+          <span class="reel__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+
+        <button class="reel reel--vertical" type="button" data-video="po7IJtS1JO4" aria-label="Play: Oh Molly">
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/po7IJtS1JO4/maxresdefault.jpg" alt="" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/po7IJtS1JO4/hqdefault.jpg'"/>
+          <span class="reel__cat">Short</span>
+          <div class="reel__meta">
+            <h3 class="reel__title">Oh Molly</h3>
+            <p class="reel__sub">Social Short</p>
+          </div>
+          <span class="reel__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+
+        </div><!-- /.reels-verticals -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 03 — WHO WE ARE ════════ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div style="margin-bottom: 96px;">
+        <span class="label">02 — Who We Are</span>
+      </div>
+      <div class="who">
+        <div class="who__text">
+          <p>
+            HYPE is a full-service creative agency based in <strong>Cork, Ireland</strong>. We produce documentaries, manage brands, create content that moves people, and transform property listings with AI.
+            <br/><br/>We don't do average.
+          </p>
+        </div>
+        <div class="who__stats">
+          <div class="stat">
+            <div class="stat__num">22+</div>
+            <div class="stat__label">
+              <strong>Active Clients</strong>
+              Hospitality, fashion, property, lifestyle
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">07</div>
+            <div class="stat__label">
+              <strong>Years of HYPE</strong>
+              Building brands since March 2019
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">02</div>
+            <div class="stat__label">
+              <strong>Countries</strong>
+              Ireland &amp; beyond
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 04 — TWO WORLDS ════════ -->
+  <section class="section" id="creative">
+    <div class="container container--wide">
+      <div class="section-head">
+        <div>
+          <span class="label">03 — What We Do</span>
+          <h2 class="section-title">Two worlds.<br/>One <em>obsession.</em></h2>
+        </div>
+        <p class="section-lede" style="max-width: 36ch; text-align: right;">
+          Creative storytelling for brands that want to be remembered — and an AI product built for the people selling property.
+        </p>
+      </div>
+
+      <div class="worlds">
+
+        <div class="world world--creative">
+          <div class="world__top">
+            <span class="world__tag">Agency / 01</span>
+            <h3 class="world__title">HYPE Creative</h3>
+          </div>
+          <p class="world__lede">
+            <strong>Social Media. Content. Documentaries. PR.</strong>
+            We craft stories that connect brands with their audience — whether that's a cinematic brand film, a fashion campaign, or a season of social content that actually converts.
+          </p>
+          <div class="world__services">
+            <span class="world__chip">Social Media</span>
+            <span class="world__chip">Content Creation</span>
+            <span class="world__chip">Video &amp; Documentary</span>
+            <span class="world__chip">Marketing &amp; PR</span>
+            <span class="world__chip">Consulting</span>
+          </div>
+          <div class="world__bottom">
+            <a href="#work" class="btn btn--primary btn--sm">
+              Explore Our Work
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="world world--property">
+          <div class="world__top">
+            <span class="world__tag">Product / 02</span>
+            <h3 class="world__title">HYPE Property AI</h3>
+          </div>
+          <p class="world__lede">
+            <strong>AI-enhanced property listings.</strong> Virtual staging. CGI renders. Twilight skies. We turn phone photos into premium listing imagery so agents and developers can sell faster.
+          </p>
+          <div class="world__stats">
+            <div>
+              <div class="world__stat-num">&lt; 24hr</div>
+              <div class="world__stat-label">Delivery</div>
+            </div>
+            <div>
+              <div class="world__stat-num">€60</div>
+              <div class="world__stat-label">From / listing</div>
+            </div>
+            <div>
+              <div class="world__stat-num">1</div>
+              <div class="world__stat-label">Free trial</div>
+            </div>
+          </div>
+          <div class="world__bottom">
+            <a href="property.html" class="btn btn--primary btn--sm">
+              Explore Property AI
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CLIENT LOGOS ════════ -->
+  <section class="clients" aria-label="Clients">
+    <div class="container">
+      <div class="clients__label">Proud To Work With</div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+
+          <span class="marquee__item marquee__item--large" title="McCarthy Developments">
+            <img src="logos/mccarthy-developments.png" alt="McCarthy Developments" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Dino's">
+            <img src="logos/dinos.png" alt="Dino's" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Soma Coffee">
+            <img src="logos/soma-coffee.png" alt="Soma Coffee" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Shelbourne Bar">
+            <img src="logos/shelbourne.webp" alt="The Shelbourne Bar" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="University College Cork">
+            <img src="logos/ucc.png" alt="University College Cork" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Raven Bar">
+            <img src="logos/raven-bar.png" alt="The Raven Bar" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Da Mirco Osteria">
+            <img src="logos/da-mirco.png" alt="Da Mirco Osteria" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="O'Flynn's Gourmet">
+            <img src="logos/oflynns-gourmet.png" alt="O'Flynn's Gourmet" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Hive Padel Club">
+            <img src="logos/hive-padel.png" alt="The Hive Padel Club" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="West Cork Distillers">
+            <img src="logos/west-cork-distillers.png" alt="West Cork Distillers" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Oh Molly">
+            <img src="logos/oh-molly.png" alt="Oh Molly" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Franciscan Well">
+            <img src="logos/franciscan-well.png" alt="Franciscan Well" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Sirius Arts Centre">
+            <img src="logos/sirius-arts-centre.png" alt="Sirius Arts Centre" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Elm Tree">
+            <img src="logos/elm-tree.png" alt="The Elm Tree" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Mayumi">
+            <img src="logos/mayumi.png" alt="Mayumi" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Sober Lane Bar & Grill">
+            <img src="logos/sober-lane.png" alt="Sober Lane Bar & Grill" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Whelan">
+            <img src="logos/whelan.png" alt="Whelan" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="O'Mahony Walsh">
+            <img src="logos/omahony-walsh.png" alt="O'Mahony Walsh" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="SuperValu">
+            <img src="logos/supervalu.png" alt="SuperValu" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Black Market">
+            <img src="logos/black-market.png" alt="The Black Market" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="FILO Clinic">
+            <img src="logos/filo-clinic.png" alt="FILO Clinic" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="La Vida">
+            <img src="logos/la-vida.png" alt="La Vida" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="South William Clinic">
+            <img src="logos/south-william-clinic.png" alt="South William Clinic" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Carewswood">
+            <img src="logos/carewswood.png" alt="Carewswood" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Umi Falafel">
+            <img src="logos/umi-falafel.png" alt="Umi Falafel" loading="eager"/>
+          </span>
+          <span class="marquee__item marquee__item--medium" title="O'Reilly's">
+            <img src="logos/oreillys.png" alt="O'Reilly's" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Sensei">
+            <img src="logos/sensei.png" alt="Sensei" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Sheen Falls">
+            <img src="logos/sheen-falls.png" alt="Sheen Falls" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Mick Murphy">
+            <img src="logos/mick-murphy.png" alt="Mick Murphy" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Two More Power Balls">
+            <img src="logos/two-more-power-balls.png" alt="Two More Power Balls" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Ketogym">
+            <img src="logos/ketogym.png" alt="Ketogym" loading="eager"/>
+          </span>
+
+          <!-- Duplicate set for seamless loop -->
+          <span class="marquee__item marquee__item--large" title="McCarthy Developments">
+            <img src="logos/mccarthy-developments.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Dino's">
+            <img src="logos/dinos.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Soma Coffee">
+            <img src="logos/soma-coffee.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Shelbourne Bar">
+            <img src="logos/shelbourne.webp" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="University College Cork">
+            <img src="logos/ucc.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Raven Bar">
+            <img src="logos/raven-bar.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Da Mirco Osteria">
+            <img src="logos/da-mirco.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="O'Flynn's Gourmet">
+            <img src="logos/oflynns-gourmet.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Hive Padel Club">
+            <img src="logos/hive-padel.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="West Cork Distillers">
+            <img src="logos/west-cork-distillers.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Oh Molly">
+            <img src="logos/oh-molly.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Franciscan Well">
+            <img src="logos/franciscan-well.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Sirius Arts Centre">
+            <img src="logos/sirius-arts-centre.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Elm Tree">
+            <img src="logos/elm-tree.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Mayumi">
+            <img src="logos/mayumi.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Sober Lane Bar & Grill">
+            <img src="logos/sober-lane.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Whelan">
+            <img src="logos/whelan.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="O'Mahony Walsh">
+            <img src="logos/omahony-walsh.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="SuperValu">
+            <img src="logos/supervalu.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="The Black Market">
+            <img src="logos/black-market.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="FILO Clinic">
+            <img src="logos/filo-clinic.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="La Vida">
+            <img src="logos/la-vida.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="South William Clinic">
+            <img src="logos/south-william-clinic.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Carewswood">
+            <img src="logos/carewswood.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Umi Falafel">
+            <img src="logos/umi-falafel.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item marquee__item--medium" title="O'Reilly's">
+            <img src="logos/oreillys.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Sensei">
+            <img src="logos/sensei.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Sheen Falls">
+            <img src="logos/sheen-falls.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Mick Murphy">
+            <img src="logos/mick-murphy.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Two More Power Balls">
+            <img src="logos/two-more-power-balls.png" alt="" loading="eager"/>
+          </span>
+          <span class="marquee__item" title="Ketogym">
+            <img src="logos/ketogym.png" alt="" loading="eager"/>
+          </span>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 08 — TESTIMONIALS ════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="label">04 — In Their Words</span>
+          <h2 class="section-title">What clients <em>say.</em></h2>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <figure class="quote">
+          <div class="quote__mark">"</div>
+          <p class="quote__text">
+            I've entrusted four of my startup businesses — two restaurants and two medical spas — to HYPE, and they consistently exceed expectations. Creative vision, strategic marketing, and the kind of professionalism that keeps my brands polished and credible.
+          </p>
+          <figcaption class="quote__author">
+            <div class="quote__name">Ryan Lumur</div>
+            <div class="quote__role">Founder, FILO Clinic</div>
+          </figcaption>
+        </figure>
+
+        <figure class="quote">
+          <div class="quote__mark">"</div>
+          <p class="quote__text">
+            Outstanding work and service from HYPE Media. Their patience, efficiency and understanding of your brand make them an obvious choice for content creation. Looking forward to working with them again.
+          </p>
+          <figcaption class="quote__author">
+            <div class="quote__name">Mary Cregan</div>
+            <div class="quote__role">Dino's</div>
+          </figcaption>
+        </figure>
+
+        <figure class="quote">
+          <div class="quote__mark">"</div>
+          <p class="quote__text">
+            We at Sheena's Boutique proudly recommend HYPE Digital. Tiago and the team understood our vision from beginning to end, creating the most magical storytelling experience — and directly improving sales across all our platforms.
+          </p>
+          <figcaption class="quote__author">
+            <div class="quote__name">Miriam Ray</div>
+            <div class="quote__role">Sheena's Boutique</div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 09 — PROPERTY AI TEASER ════════ -->
+  <section class="property-teaser">
+    <div class="container">
+      <div class="pt-grid">
+        <div class="pt-grid__left">
+          <div class="pt-grid__label">05 — Introducing</div>
+          <h2 class="pt-grid__title">HYPE <em>Property AI.</em></h2>
+          <p class="pt-grid__sub">
+            Smartphone photos in. Professional listings out. In 24 hours.
+            Virtual staging, sky replacement, CGI renders — delivered fast and priced for volume.
+          </p>
+          <a href="property.html" class="btn btn--primary">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="pt-stats">
+          <div class="pt-stat">
+            <div class="pt-stat__num">&lt; 24hr</div>
+            <div class="pt-stat__label">Turnaround<br/>Guaranteed</div>
+          </div>
+          <div class="pt-stat">
+            <div class="pt-stat__num">04</div>
+            <div class="pt-stat__label">Deliverables<br/>Per Listing</div>
+          </div>
+          <div class="pt-stat">
+            <div class="pt-stat__num">&lt; €60</div>
+            <div class="pt-stat__label">Per Listing<br/>From</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before / After demo: real proof of what Property AI delivers -->
+      <div class="pt-compare" aria-label="Before and after comparison">
+        <figure class="pt-compare__panel pt-compare__panel--before">
+          <img src="images/property/before.jpg" alt="Raw smartphone photo of a property under construction" loading="lazy"/>
+          <span class="pt-compare__label">Before — Phone</span>
+        </figure>
+        <figure class="pt-compare__panel pt-compare__panel--after">
+          <img src="images/property/after.jpg" alt="Same property after HYPE Property AI processing" loading="lazy"/>
+          <span class="pt-compare__label">After — HYPE Property AI</span>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 10 — BLOG PREVIEW ════════ -->
+  <section class="section" id="blog">
+    <div class="container container--wide">
+      <div class="section-head">
+        <div>
+          <span class="label">06 — Field Notes</span>
+          <h2 class="section-title">From the <em>studio.</em></h2>
+        </div>
+        <p class="section-lede" style="max-width: 32ch; text-align: right;">
+          Thoughts on storytelling, brand, and the craft of content.
+        </p>
+      </div>
+
+      <div class="blog-grid">
+        <a href="blog/film-not-feed.html" class="post post--featured">
+          <div class="post__visual post__visual--photo">
+            <img src="images/blog/film-not-feed.jpg" alt="" loading="lazy"/>
+          </div>
+          <div class="post__meta">
+            <span class="post__cat">Brand · Strategy</span>
+            <span>April 2026</span>
+          </div>
+          <h3 class="post__title">Why every hospitality brand needs a film, not just a feed.</h3>
+          <p class="post__excerpt">The restaurants winning 2026 aren't choosing between posting daily and telling a story. They're doing both — with one powering the other. A brand film is the foundation. Daily content is how you keep it alive.</p>
+        </a>
+        <a href="blog/property-ai-listing-time.html" class="post post--photo">
+          <div class="post__visual post__visual--photo">
+            <img src="images/blog/property-ai-dublin.jpg" alt="" loading="lazy"/>
+          </div>
+          <div class="post__meta">
+            <span class="post__cat">Property AI · Product</span>
+            <span>April 2026</span>
+          </div>
+          <h3 class="post__title">How HYPE Property AI is built to cut listing time in half.</h3>
+          <p class="post__excerpt">The Irish property market moves fast. Listings don't. HYPE Property AI is engineered to fix that — and agents across Ireland are already getting on board.</p>
+        </a>
+        <a href="blog/brand-sprint.html" class="post post--photo">
+          <div class="post__visual post__visual--photo">
+            <img src="images/blog/brand-sprint.jpg" alt="" loading="lazy"/>
+          </div>
+          <div class="post__meta">
+            <span class="post__cat">Process · Brand</span>
+            <span>April 2026</span>
+          </div>
+          <h3 class="post__title">The 3-week brand sprint: what we ship and why.</h3>
+          <p class="post__excerpt">Strategy, identity, content, and launch — in 21 days. A look inside the framework HYPE uses to take businesses from invisible to unmissable.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 11 — CONTACT ════════ -->
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+      <h2 class="contact__title">Ready to collaborate?<br/>Let's create something <em>epic.</em></h2>
+      <form
+        class="contact__form"
+        data-mailto="hello@hypedigital.ie"
+        data-subject="New project enquiry"
+      >
+        <input type="email" name="email" placeholder="your@email.com" required aria-label="Your email" />
+        <button type="submit" class="btn btn--primary">
+          Send
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </form>
+      <div class="contact__note">Or email hello@hypedigital.ie &nbsp;·&nbsp; Cork, Ireland</div>
+    </div>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="hype-mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="56" height="56">
+              <rect x="6" y="6" width="24" height="24" rx="3" fill="#E63946"/>
+              <rect x="6" y="38" width="24" height="24" rx="3" fill="#E63946"/>
+              <rect x="6" y="70" width="24" height="24" rx="3" fill="#E63946"/>
+              <rect x="70" y="6" width="24" height="24" rx="3" fill="#E63946"/>
+              <rect x="70" y="38" width="24" height="24" rx="3" fill="#E63946"/>
+              <rect x="70" y="70" width="24" height="24" rx="3" fill="#E63946"/>
+              <rect x="38" y="38" width="24" height="24" rx="3" fill="#FFFFFF"/>
+            </svg>
+          </span>
+          <p class="footer__tag">HYPE Marketing &amp; Media. A creative agency in Cork, Ireland. Documentaries, brand films, social, and HYPE Property AI.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#creative">Services</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#creative">Social &amp; Content</a></li>
+            <li><a href="#creative">Documentary</a></li>
+            <li><a href="#creative">PR &amp; Marketing</a></li>
+            <li><a href="property.html">Property AI</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Vimeo</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@hypedigital.ie">hello@hypedigital.ie</a></li>
+            <li>Cork, Ireland</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 HYPE Marketing &amp; Media</span>
+        <div class="footer__socials" aria-label="Social">
+          <a href="https://www.instagram.com/hypedigital.ie" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/hypedigitalnow" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@hypedigital.ie" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.967-1.166-1.946-1.284-2.628h.005c-.099-.566-.058-.933-.052-.933h-3.82v14.735c0 .197 0 .394-.008.588l-.001.073-.003.033v.01a3.232 3.232 0 0 1-1.625 2.565 3.176 3.176 0 0 1-1.574.415c-1.759 0-3.184-1.433-3.184-3.203 0-1.77 1.425-3.203 3.184-3.203a3.166 3.166 0 0 1 .988.158l.005-3.888a7.04 7.04 0 0 0-5.426 1.584 7.43 7.43 0 0 0-1.625 2.003c-.152.253-.728 1.309-.798 3.023-.044 .974.249 1.984.389 2.402v.008c.088 .245.427 1.082.978 1.787a8.099 8.099 0 0 0 1.556 1.536v-.01l.009.01c1.843 1.253 3.887 1.171 3.887 1.171.354-.014 1.54 0 2.886-.636 1.496-.71 2.348-1.763 2.348-1.763a7.315 7.315 0 0 0 1.279-2.129c.414-1.084.552-2.385.552-2.905V8.292c.046.027.66 .435.66 .435s.886.568 2.269.94c.991.264 2.327.32 2.327.32V5.795c-.467.051-1.416-.096-2.388-.579z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/hypedigital.ie" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.x.com/@hypedigitalnow" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@HYPEWorldMedia" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.35z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════ VIDEO MODAL ════════ -->
+  <div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Video player">
+    <div class="video-modal__frame">
+      <button class="video-modal__close" id="video-modal-close" type="button" aria-label="Close video">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <iframe id="video-modal-iframe" src="" title="Video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
