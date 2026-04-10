@@ -1532,6 +1532,54 @@ html.intro-active body {
   color: var(--fg-muted);
   line-height: 1.6;
 }
+.post__read {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--fg-muted);
+  margin-top: auto;
+  padding-top: 24px;
+  transition: color var(--dur) var(--ease), gap var(--dur) var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.post:hover .post__read { color: var(--accent); gap: 12px; }
+
+/* ---- Blog Hub Page ---- */
+.blog-hub { padding-block: clamp(80px, 10vw, 140px); }
+.blog-grid--hub .post--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.blog-grid--hub .post--featured .post__visual { aspect-ratio: 16 / 10; }
+.blog-grid--hub .post--featured .post__body { display: flex; flex-direction: column; gap: 16px; }
+.blog-grid--hub .post--featured .post__title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+/* ---- Blog "view all" link (homepage) ---- */
+.blog-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+.blog-all a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--fg-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color var(--dur) var(--ease), gap var(--dur) var(--ease);
+}
+.blog-all a:hover { color: var(--accent); gap: 12px; }
 
 /* ============================================================
    CONTACT CTA
@@ -1847,9 +1895,77 @@ html.intro-active body {
   line-height: 1.8;
 }
 
+/* ---------- Next-article navigation ---------- */
+.article__next {
+  max-width: 720px;
+  margin: clamp(56px, 7vw, 88px) auto 0;
+  border-top: 1px solid var(--border);
+  padding-top: 48px;
+}
+.article__next-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--fg-dim);
+  display: block;
+  margin-bottom: 24px;
+}
+.article__next-card {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 32px;
+  align-items: center;
+  padding: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.article__next-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.article__next-img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.article__next-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.92) saturate(0.85);
+  transition: filter 600ms var(--ease);
+}
+.article__next-card:hover .article__next-img img {
+  filter: brightness(1) saturate(1);
+}
+.article__next-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+.article__next-arrow {
+  color: var(--fg-muted);
+  flex-shrink: 0;
+  transition: color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.article__next-card:hover .article__next-arrow {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
 @media (max-width: 900px) {
   .article__hero { grid-template-columns: 1fr; gap: 32px; }
   .article__hero-img { aspect-ratio: 16 / 10; max-width: 100%; }
+  .article__next-card {
+    grid-template-columns: 140px 1fr auto;
+    gap: 20px;
+    padding: 16px;
+  }
 }
 
 /* ============================================================
@@ -2198,6 +2314,7 @@ html.intro-active body {
   .quote--featured { grid-column: span 2; }
   .pt-grid { grid-template-columns: 1fr; gap: 48px; }
   .blog-grid { grid-template-columns: 1fr 1fr; }
+  .blog-grid--hub .post--featured { grid-template-columns: 1fr 1fr; }
   .footer__top { grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
   .footer__brand { grid-column: 1 / -1; }
   .prop-hero__row { grid-template-columns: 1fr; gap: 40px; align-items: flex-start; }
@@ -2232,6 +2349,9 @@ html.intro-active body {
   .quotes { grid-template-columns: 1fr; }
   .quote--featured { grid-column: span 1; }
   .blog-grid { grid-template-columns: 1fr; }
+  .blog-grid--hub .post--featured { grid-template-columns: 1fr; }
+  .article__next-card { grid-template-columns: 1fr; gap: 20px; }
+  .article__next-arrow { display: none; }
   .footer__top { grid-template-columns: 1fr; gap: 40px; }
   .footer__bottom { flex-direction: column; gap: 20px; text-align: center; }
   .section-head { margin-bottom: 64px; gap: 24px; }
