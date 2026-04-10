@@ -682,9 +682,12 @@
       <h2 class="contact__title">Ready to collaborate?<br/>Let's create something <em>epic.</em></h2>
       <form
         class="contact__form"
-        data-mailto="hello@hypedigital.ie"
-        data-subject="New project enquiry"
+        action="https://formsubmit.co/hello@hypedigital.ie"
+        method="POST"
       >
+        <input type="hidden" name="_subject" value="New project enquiry — hypedigital.ie"/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
         <input type="email" name="email" placeholder="your@email.com" required aria-label="Your email" />
         <button type="submit" class="btn btn--primary">
           Send

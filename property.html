@@ -268,9 +268,12 @@
       <h2 class="contact__title">Send us five photos.<br/>We'll handle the <em>rest.</em></h2>
       <form
         class="contact__form"
-        data-mailto="property@hypedigital.ie"
-        data-subject="HYPE Property AI — Free listing trial"
+        action="https://formsubmit.co/property@hypedigital.ie"
+        method="POST"
       >
+        <input type="hidden" name="_subject" value="HYPE Property AI — Free listing trial"/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
         <input type="email" name="email" placeholder="your@email.com" required aria-label="Your email" />
         <button type="submit" class="btn btn--primary">
           Start Free Trial

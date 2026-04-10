@@ -9,32 +9,41 @@
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ═══════════════════════════════════════════════════════════════
-  // CONTACT FORM → MAILTO
-  // Any <form class="contact__form" data-mailto="…" data-subject="…">
-  // opens the user's email client pre-filled with the recipient, subject,
-  // and a friendly body containing the visitor's email address.
+  // CONTACT FORM → FORMSUBMIT (AJAX)
+  // Posts to formsubmit.co via fetch, shows inline confirmation.
   // ═══════════════════════════════════════════════════════════════
   document.querySelectorAll('form.contact__form').forEach((form) => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const to = form.dataset.mailto || 'hello@hypedigital.ie';
-      const subject = form.dataset.subject || 'New enquiry';
-      const input = form.querySelector('input[type="email"]');
-      const visitorEmail = input ? input.value.trim() : '';
+      const btn = form.querySelector('button[type="submit"]');
+      const originalHTML = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
 
-      const body =
-        'Hi HYPE,\n\n' +
-        "I'd like to talk about a project.\n\n" +
-        (visitorEmail ? `My email: ${visitorEmail}\n\n` : '') +
-        'Cheers.';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
 
-      const mailtoUrl =
-        'mailto:' + encodeURIComponent(to) +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
-
-      // Open the user's email client
-      window.location.href = mailtoUrl;
+        if (res.ok) {
+          form.reset();
+          btn.textContent = 'Sent \u2713';
+          btn.style.opacity = '0.7';
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.disabled = false;
+            btn.style.opacity = '';
+          }, 3000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch {
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+        alert('Something went wrong. Please email us directly.');
+      }
     });
   });
 
