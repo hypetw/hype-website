@@ -882,10 +882,133 @@
     }
     .studio-footline strong { color: #fff; font-weight: 500; letter-spacing: 0.18em; }
 
+    /* ============ FAQ ============ */
+    .faq {
+      display: flex;
+      flex-direction: column;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .faq__item {
+      border-top: 1px solid var(--rule);
+      padding: 0;
+    }
+    .faq__item:last-of-type { border-bottom: 1px solid var(--rule); }
+    .faq__item summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 32px 1fr 32px;
+      gap: 16px;
+      align-items: start;
+      padding: 28px 0;
+      transition: color 220ms var(--ease);
+    }
+    .faq__item summary::-webkit-details-marker { display: none; }
+    .faq__num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 6px;
+    }
+    .faq__q {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0;
+    }
+    .faq__toggle {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      justify-self: end;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+    .faq__toggle::before,
+    .faq__toggle::after {
+      content: '';
+      position: absolute;
+      left: 50%; top: 50%;
+      background: var(--ink);
+      transition: transform 260ms var(--ease), background 220ms var(--ease);
+    }
+    .faq__toggle::before { width: 14px; height: 1px; transform: translate(-50%, -50%); }
+    .faq__toggle::after  { width: 1px; height: 14px; transform: translate(-50%, -50%); }
+    .faq__item[open] summary { color: var(--accent); }
+    .faq__item[open] .faq__q { color: var(--accent); }
+    .faq__item[open] .faq__toggle::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+    .faq__item[open] .faq__toggle::before { background: var(--accent); }
+    .faq__a {
+      grid-column: 2;
+      padding: 0 0 32px;
+      color: var(--ink-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 60ch;
+    }
+    .faq__a p { margin: 0 0 14px; }
+    .faq__a p:last-child { margin-bottom: 0; }
+    .faq__item[open] .faq__a {
+      animation: faqReveal 320ms var(--ease);
+    }
+    @keyframes faqReveal {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .faq__inner {
+      display: grid;
+      grid-template-columns: 32px 1fr 32px;
+      gap: 16px;
+    }
+    .faq__outro {
+      margin: 64px auto 0;
+      max-width: 880px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .faq__outro p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: var(--ink);
+      max-width: 48ch;
+      margin: 0;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; }
     }
   </style>
+
+  <!-- FAQ JSON-LD: makes answers eligible for Google rich results and AI search citation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What do you need from us to start?", "acceptedAnswer": { "@type": "Answer", "text": "The photography the listing already has. You send the existing images and we produce everything from there: the film, the graded stills, the social cuts, and the collateral, all delivered ready for market and yours to run across the launch. There is nothing to arrange beyond sending the files." } },
+      { "@type": "Question", "name": "Do we need a new photo shoot or a crew on site?", "acceptedAnswer": { "@type": "Answer", "text": "No. We work entirely from imagery that already exists, so there is no shoot to book, no crew to travel, and nothing to schedule around weather or access. Work that used to need a production budget and a clear week in the calendar now starts from the photos already in your listing." } },
+      { "@type": "Question", "name": "What do we actually receive?", "acceptedAnswer": { "@type": "Answer", "text": "A complete set, not a single file: the property film, editorial listing imagery, the cuts your channels use, and print-ready collateral, all carrying one creative direction so every piece belongs to the same campaign, in the formats your channels actually use." } },
+      { "@type": "Question", "name": "How long does it take?", "acceptedAnswer": { "@type": "Answer", "text": "Listing imagery is delivered in 48 hours as standard. A full engagement, the film and the complete asset set, typically moves from first brief to finished work in five to fourteen days. No shoot in the schedule is why it moves that fast." } },
+      { "@type": "Question", "name": "What if the home is not built yet, or our photos are basic?", "acceptedAnswer": { "@type": "Answer", "text": "Both are fine. For off-plan schemes we produce finished-home visuals buyers can picture living in, and for existing homes we work with whatever you have, including phone photography. The starting point matters far less than most people assume." } },
+      { "@type": "Question", "name": "Can you keep it consistent across a whole scheme?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. One team holds a single creative direction across every asset and every unit, so a multi-home launch reads as one premium brand rather than a set of listings shot by different hands on different days." } },
+      { "@type": "Question", "name": "How much does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "Engagements start from €1,500 a month, with schemes quoted to scope, since a multi-unit launch is a different brief from a single premium listing. Against the cost and delay of arranging a fresh shoot for every property, it is the more efficient way to bring a portfolio to market." } },
+      { "@type": "Question", "name": "Do you only work in Ireland?", "acceptedAnswer": { "@type": "Answer", "text": "No. The studio is based in Cork and works across Ireland, the UK, and internationally. Because everything starts from existing imagery, the location of the property places no limit on what we can deliver. Our flagship film, a beachfront estate at Lyford Cay, was produced entirely from the listing's existing photography." } }
+    ]
+  }
+  </script>
 </head>
 <body class="studio">
 
@@ -909,6 +1032,7 @@
       <nav class="nav__links" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
         <a href="#inquiry">Inquiry</a>
       </nav>
       <a href="#inquiry" class="nav__cta">
@@ -945,6 +1069,7 @@
     <nav class="mobile-menu__links" aria-label="Mobile">
       <a href="#work">Work</a>
       <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
       <a href="#inquiry">Inquiry</a>
       <a href="index.html">Main site</a>
     </nav>
@@ -1166,6 +1291,148 @@
             Assets delivered ready for market in the formats your channels actually use. Most engagements close inside five to fourteen days from first brief.
           </p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FAQ ════════ -->
+  <section class="studio-section studio-section--paper" id="faq">
+    <div class="container">
+      <div class="studio-section__head" style="text-align:center; margin-left:auto; margin-right:auto;">
+        <span class="eyebrow eyebrow--ink">Questions</span>
+        <h2 class="studio-section__title" style="margin-left:auto; margin-right:auto;">What partners ask <em>first.</em></h2>
+      </div>
+
+      <div class="faq">
+
+        <details class="faq__item" open>
+          <summary>
+            <span class="faq__num">01</span>
+            <h3 class="faq__q">What do you need from us to start?</h3>
+            <span class="faq__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__inner">
+            <span></span>
+            <div class="faq__a">
+              <p>The photography the listing already has. You send the existing images of the property and we produce everything from there: the film, the graded stills, the social cuts, the collateral, all delivered ready for market and yours to run across the launch. There is nothing to arrange on your side beyond sending the files.</p>
+            </div>
+            <span></span>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">02</span>
+            <h3 class="faq__q">Do we need a new photo shoot or a crew on site?</h3>
+            <span class="faq__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__inner">
+            <span></span>
+            <div class="faq__a">
+              <p>No. We work entirely from imagery that already exists, so there is no shoot to book, no crew to travel, and nothing to schedule around weather or access. That is the whole point of the studio. The work that used to need a production budget and a clear week in the calendar now starts from the photos already sitting in your listing.</p>
+            </div>
+            <span></span>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">03</span>
+            <h3 class="faq__q">What do we actually receive?</h3>
+            <span class="faq__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__inner">
+            <span></span>
+            <div class="faq__a">
+              <p>A complete set, not a single file. The property film, the editorial listing imagery, the cuts your channels use, and print-ready collateral, all carrying one creative direction so every piece looks like it belongs to the same campaign. You get what the launch needs, in the formats your channels actually use.</p>
+            </div>
+            <span></span>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">04</span>
+            <h3 class="faq__q">How long does it take?</h3>
+            <span class="faq__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__inner">
+            <span></span>
+            <div class="faq__a">
+              <p>Listing imagery is delivered in 48 hours as standard. A full engagement, the film and the complete asset set, typically moves from first brief to finished work in five to fourteen days. No shoot in the schedule is the reason it moves that fast.</p>
+            </div>
+            <span></span>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">05</span>
+            <h3 class="faq__q">What if the home is not built yet, or our photos are basic?</h3>
+            <span class="faq__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__inner">
+            <span></span>
+            <div class="faq__a">
+              <p>Both are fine. For schemes still off-plan we produce finished-home visuals buyers can picture living in. For existing homes we work with whatever you have, including straightforward phone photography. The starting point matters far less than most people assume.</p>
+            </div>
+            <span></span>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">06</span>
+            <h3 class="faq__q">Can you keep it consistent across a whole scheme?</h3>
+            <span class="faq__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__inner">
+            <span></span>
+            <div class="faq__a">
+              <p>Yes, and that is where it matters most. One team holds a single creative direction across every asset and every unit, so a multi-home launch reads as one premium brand rather than a set of listings shot by different hands on different days.</p>
+            </div>
+            <span></span>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">07</span>
+            <h3 class="faq__q">How much does it cost?</h3>
+            <span class="faq__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__inner">
+            <span></span>
+            <div class="faq__a">
+              <p>Engagements start from &euro;1,500 a month, with schemes quoted to scope, since a multi-unit launch is a different brief from a single premium listing. Set against the cost and the delay of arranging a fresh shoot for every property, it is the more efficient way to bring a portfolio to market.</p>
+            </div>
+            <span></span>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            <span class="faq__num">08</span>
+            <h3 class="faq__q">Do you only work in Ireland?</h3>
+            <span class="faq__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__inner">
+            <span></span>
+            <div class="faq__a">
+              <p>No. The studio is based in Cork and works across Ireland, the UK, and internationally. Because everything starts from imagery that already exists, the location of the property places no limit on what we can deliver. Our flagship film, a beachfront estate at Lyford Cay, was produced entirely from the listing's existing photography.</p>
+            </div>
+            <span></span>
+          </div>
+        </details>
+
+      </div>
+
+      <div class="faq__outro">
+        <p>If the studio looks like the right partner for your scheme, send a brief. Every inquiry is reviewed personally, with a reply inside two working days.</p>
+        <a href="#inquiry" class="studio-btn studio-btn--ink">
+          Apply for partnership
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>
