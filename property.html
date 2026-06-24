@@ -490,7 +490,7 @@
     }
     .flagship__placeholder span:first-child { color: var(--fg-dim); }
 
-    /* Flagship film (click-to-watch poster) */
+    /* Flagship film (inline native <video>) */
     .flagship__visual--film {
       aspect-ratio: 16 / 9;
       align-items: stretch;
@@ -499,74 +499,62 @@
       display: block;
     }
     .flagship__visual--film::before { display: none; }
-    .flagship__poster {
+    .flagship__player {
       cursor: pointer;
-      text-decoration: none;
-      color: inherit;
       isolation: isolate;
+      position: relative;
     }
-    .flagship__poster-img {
+    .flagship__video {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1),
-                  filter 400ms ease;
-      filter: brightness(0.88) saturate(0.95);
+      background: #000;
+      transition: filter 400ms ease;
     }
-    .flagship__poster:hover .flagship__poster-img {
-      transform: scale(1.03);
-      filter: brightness(1) saturate(1);
-    }
-    .flagship__poster::after {
+    .flagship__player.is-paused .flagship__video { filter: brightness(0.85) saturate(0.92); }
+    .flagship__player::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0) 38%, rgba(0,0,0,0.45) 100%);
       z-index: 1;
       pointer-events: none;
+      opacity: 1;
+      transition: opacity 320ms ease;
     }
-    .flagship__play {
+    .flagship__player.is-playing.is-unmuted::after { opacity: 0.35; }
+    .flagship__player .flagship__tag { z-index: 3; }
+
+    .flagship__mute {
       position: absolute;
-      left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-      width: 78px; height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 50%;
-      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5),
-                  0 0 0 1px rgba(255,255,255,0.08);
-      z-index: 2;
-      transition: transform 300ms var(--ease), background 300ms var(--ease);
-    }
-    .flagship__play svg { margin-left: 4px; }
-    .flagship__poster:hover .flagship__play {
-      transform: translate(-50%, -50%) scale(1.06);
-      background: var(--accent-hi);
-    }
-    .flagship__poster-cta {
-      position: absolute;
-      bottom: 18px; right: 18px;
+      bottom: 16px;
+      right: 16px;
+      z-index: 3;
+      width: 40px;
+      height: 40px;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.12);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      justify-content: center;
+      padding: 0;
       color: #fff;
-      z-index: 2;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
     }
-    .flagship__poster .flagship__tag { z-index: 2; }
+    .flagship__mute:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.04);
+    }
+    .flagship__mute-off { display: none; }
+    .flagship__player.is-unmuted .flagship__mute-on { display: none; }
+    .flagship__player.is-unmuted .flagship__mute-off { display: block; }
 
     .flagship__heading {
       font-family: var(--font-serif);
@@ -1256,24 +1244,22 @@
       </div>
 
       <div class="flagship">
-        <a class="flagship__visual flagship__visual--film flagship__poster"
-           href="https://youtu.be/zPxKfo76QEc"
-           target="_blank"
-           rel="noopener"
-           aria-label="Watch the Sans Souci, Lyford Cay spec film on YouTube">
+        <div class="flagship__visual flagship__visual--film flagship__player" id="flagshipPlayer">
           <span class="flagship__tag">Spec Film · 2026 — Sans Souci, Lyford Cay</span>
-          <img class="flagship__poster-img"
-               src="https://img.youtube.com/vi/zPxKfo76QEc/maxresdefault.jpg"
-               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/zPxKfo76QEc/hqdefault.jpg';"
-               alt="Sans Souci, Lyford Cay — Bahamas beachfront estate. Spec film by HYPE Listing Studio."
-               loading="lazy"/>
-          <span class="flagship__play" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </span>
-          <span class="flagship__poster-cta">Watch on YouTube
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-          </span>
-        </a>
+          <video class="flagship__video"
+                 id="flagshipVideo"
+                 src="videos/sans-souci.mp4"
+                 poster="https://img.youtube.com/vi/zPxKfo76QEc/maxresdefault.jpg"
+                 preload="metadata"
+                 muted
+                 playsinline
+                 loop
+                 aria-label="Sans Souci, Lyford Cay — Bahamas beachfront estate. Spec film by HYPE Listing Studio."></video>
+          <button class="flagship__mute" id="flagshipMute" type="button" aria-label="Unmute">
+            <svg class="flagship__mute-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg class="flagship__mute-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </button>
+        </div>
         <div class="flagship__copy">
           <div>
             <span class="flagship__num">Spec Film 01 / Sans Souci, Lyford Cay</span>
@@ -1551,6 +1537,78 @@
 
   <script src="app.js"></script>
   <script>
+    // Flagship video: autoplay muted on scroll-into-view, pause on out-of-view,
+    // click the player to unmute / re-mute.
+    (function () {
+      var player = document.getElementById('flagshipPlayer');
+      var video  = document.getElementById('flagshipVideo');
+      var muteBtn = document.getElementById('flagshipMute');
+      if (!player || !video) return;
+
+      player.classList.add('is-paused');
+
+      function setMuted(muted) {
+        video.muted = muted;
+        player.classList.toggle('is-unmuted', !muted);
+        if (muteBtn) muteBtn.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
+      }
+
+      function tryPlay() {
+        // Always start muted so autoplay policies don't block.
+        if (video.paused) {
+          var p = video.play();
+          if (p && typeof p.catch === 'function') p.catch(function () {});
+        }
+      }
+
+      video.addEventListener('playing', function () {
+        player.classList.add('is-playing');
+        player.classList.remove('is-paused');
+      });
+      video.addEventListener('pause', function () {
+        player.classList.remove('is-playing');
+        player.classList.add('is-paused');
+      });
+
+      // Autoplay/pause based on viewport visibility.
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+              tryPlay();
+            } else {
+              if (!video.paused) video.pause();
+            }
+          });
+        }, { threshold: [0, 0.4, 0.75] });
+        io.observe(player);
+      } else {
+        tryPlay();
+      }
+
+      // Click the player to unmute / re-mute (don't pause).
+      player.addEventListener('click', function (e) {
+        // Ignore clicks on the dedicated mute button so they aren't double-handled.
+        if (muteBtn && muteBtn.contains(e.target)) return;
+        setMuted(!video.muted);
+        if (video.paused) tryPlay();
+      });
+
+      if (muteBtn) {
+        muteBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          setMuted(!video.muted);
+        });
+      }
+
+      // Respect prefers-reduced-motion: don't autoplay.
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // No-op: viewport autoplay is skipped because we never call tryPlay() from IO.
+        // Override by disconnecting the observer.
+        try { io && io.disconnect && io.disconnect(); } catch (e) {}
+      }
+    })();
+
     // Inquiry email chooser: clicking the email opens a small menu
     // (Gmail, Outlook, default mail app, copy). Never silently fails.
     (function () {
