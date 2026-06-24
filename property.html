@@ -718,23 +718,92 @@
       transition: color 240ms var(--ease);
     }
     .inquiry__email:hover { color: var(--accent); }
-    .inquiry__copied {
+    .inquiry__email-wrap {
+      position: relative;
       display: inline-block;
-      margin-left: 14px;
-      padding: 6px 10px;
+      margin-top: 36px;
+    }
+    .inquiry__email-wrap .inquiry__email {
+      margin-top: 0;
+      cursor: pointer;
+    }
+    .inquiry__chooser {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 0;
+      z-index: 30;
+      width: 280px;
+      padding: 10px;
+      background: #111;
+      border: 1px solid var(--border-hi);
+      border-radius: 6px;
+      box-shadow: 0 24px 40px -12px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03);
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      transition: opacity 220ms var(--ease), transform 220ms var(--ease);
+    }
+    .inquiry__chooser[hidden] { display: none; }
+    .inquiry__chooser.is-open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .inquiry__chooser-head {
+      padding: 6px 10px 10px;
       font-family: var(--font-mono);
       font-size: 10px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 6px;
+    }
+    .inquiry__opt {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 10px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: #fff;
+      background: transparent;
+      border: 0;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 180ms var(--ease), color 180ms var(--ease);
+      text-align: left;
+    }
+    .inquiry__opt svg { color: var(--fg-muted); transition: color 180ms var(--ease), transform 180ms var(--ease); }
+    .inquiry__opt:hover {
+      background: rgba(255,255,255,0.04);
+      color: var(--accent);
+    }
+    .inquiry__opt:hover svg { color: var(--accent); transform: translateX(2px); }
+    .inquiry__opt--copy { font-family: var(--font-body); }
+
+    .inquiry__copied {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 0;
+      z-index: 31;
+      padding: 8px 12px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent);
       background: rgba(230,57,70,0.10);
       border: 1px solid rgba(230,57,70,0.40);
       border-radius: 999px;
       opacity: 0;
-      transform: translateY(4px);
+      transform: translateY(-6px);
       pointer-events: none;
       transition: opacity 240ms var(--ease), transform 240ms var(--ease);
-      vertical-align: middle;
+      white-space: nowrap;
     }
     .inquiry__copied.is-on {
       opacity: 1;
@@ -1111,11 +1180,40 @@
           <p class="inquiry__lede">
             Briefs are reviewed personally. If the studio is the right partner for your scheme, we will reply with next steps.
           </p>
-          <a href="mailto:property@hypedigital.ie?subject=Studio%20brief"
-             class="inquiry__email"
-             data-email="property@hypedigital.ie"
-             id="inquiryEmail">property@hypedigital.ie</a>
-          <span class="inquiry__copied" id="inquiryCopied" aria-live="polite">Email copied to clipboard</span>
+          <div class="inquiry__email-wrap">
+            <a href="mailto:property@hypedigital.ie?subject=Studio%20brief"
+               class="inquiry__email"
+               data-email="property@hypedigital.ie"
+               aria-haspopup="true"
+               aria-expanded="false"
+               id="inquiryEmail">property@hypedigital.ie</a>
+
+            <div class="inquiry__chooser" id="inquiryChooser" role="menu" aria-label="Send a brief" hidden>
+              <div class="inquiry__chooser-head">Send a brief via</div>
+              <a class="inquiry__opt" role="menuitem"
+                 href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=property@hypedigital.ie&amp;su=Studio%20brief"
+                 target="_blank" rel="noopener">
+                <span>Gmail</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a class="inquiry__opt" role="menuitem"
+                 href="https://outlook.office.com/mail/deeplink/compose?to=property@hypedigital.ie&amp;subject=Studio%20brief"
+                 target="_blank" rel="noopener">
+                <span>Outlook</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a class="inquiry__opt" role="menuitem"
+                 href="mailto:property@hypedigital.ie?subject=Studio%20brief">
+                <span>Default mail app</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              </a>
+              <button class="inquiry__opt inquiry__opt--copy" role="menuitem" type="button" id="inquiryCopy">
+                <span>Copy address</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <span class="inquiry__copied" id="inquiryCopied" aria-live="polite">Email copied</span>
+          </div>
           <p class="inquiry__meta">
             Briefs reviewed within two working days<br/>
             Available across Ireland, the UK, and internationally
@@ -1147,19 +1245,37 @@
 
   <script src="app.js"></script>
   <script>
-    // Inquiry email: trigger mailto AND copy to clipboard with a small toast.
-    // This way even users without a default mail handler get the address in hand.
+    // Inquiry email chooser: clicking the email opens a small menu
+    // (Gmail, Outlook, default mail app, copy). Never silently fails.
     (function () {
-      var link  = document.getElementById('inquiryEmail');
-      var toast = document.getElementById('inquiryCopied');
-      if (!link || !toast) return;
+      var link    = document.getElementById('inquiryEmail');
+      var chooser = document.getElementById('inquiryChooser');
+      var copyBtn = document.getElementById('inquiryCopy');
+      var toast   = document.getElementById('inquiryCopied');
+      if (!link || !chooser || !copyBtn || !toast) return;
       var addr = link.getAttribute('data-email') || link.textContent.trim();
-      var timer;
+      var hideTimer;
+
+      function openChooser() {
+        chooser.hidden = false;
+        // next frame so the transition fires
+        requestAnimationFrame(function () { chooser.classList.add('is-open'); });
+        link.setAttribute('aria-expanded', 'true');
+      }
+      function closeChooser() {
+        chooser.classList.remove('is-open');
+        link.setAttribute('aria-expanded', 'false');
+        setTimeout(function () { if (!chooser.classList.contains('is-open')) chooser.hidden = true; }, 240);
+      }
+      function toggleChooser() {
+        if (chooser.classList.contains('is-open')) closeChooser(); else openChooser();
+      }
 
       function showToast() {
+        closeChooser();
         toast.classList.add('is-on');
-        clearTimeout(timer);
-        timer = setTimeout(function () { toast.classList.remove('is-on'); }, 2400);
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(function () { toast.classList.remove('is-on'); }, 2400);
       }
 
       function copyAddr() {
@@ -1168,7 +1284,6 @@
         }
         legacyCopy();
       }
-
       function legacyCopy() {
         try {
           var ta = document.createElement('textarea');
@@ -1184,9 +1299,29 @@
         } catch (err) { /* silently ignore */ }
       }
 
-      link.addEventListener('click', function () {
-        // Don't prevent default — let the browser try the mailto handler.
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleChooser();
+      });
+
+      copyBtn.addEventListener('click', function (e) {
+        e.preventDefault();
         copyAddr();
+      });
+
+      // Close the chooser when a real option is chosen
+      chooser.querySelectorAll('a.inquiry__opt').forEach(function (a) {
+        a.addEventListener('click', function () { closeChooser(); });
+      });
+
+      // Click outside / Esc closes
+      document.addEventListener('click', function (e) {
+        if (!chooser.classList.contains('is-open')) return;
+        if (chooser.contains(e.target) || link.contains(e.target)) return;
+        closeChooser();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeChooser();
       });
     })();
   </script>
