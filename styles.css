@@ -1510,6 +1510,24 @@ html.intro-active body {
   transform: scale(1.04);
   filter: brightness(1) saturate(1);
 }
+.post__visual--studio-logo {
+  background: #1A1A1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.post__visual--studio-logo::after { display: none; }
+.post__visual--studio-logo img {
+  position: relative;
+  inset: auto;
+  width: auto;
+  height: 70%;
+  max-width: 60%;
+  object-fit: contain;
+  filter: none;
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.post:hover .post__visual--studio-logo img { transform: scale(1.04); }
 .post__meta {
   display: flex;
   gap: 16px;
@@ -2210,7 +2228,211 @@ html.intro-active body {
   color: var(--accent);
 }
 
-/* ---------- Property AI teaser before/after (homepage) ---------- */
+/* ---------- Listing Studio monitor mockup (shared with /property.html) ---------- */
+.studio-monitor {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 80px auto 0;
+}
+.studio-monitor__frame {
+  position: relative;
+  background: #1A1A1A;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 14px 14px 18px;
+  box-shadow:
+    0 40px 80px -20px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.04);
+}
+.studio-monitor__bezel {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 0 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+.studio-monitor__dots { display: inline-flex; gap: 6px; }
+.studio-monitor__dots span {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: #3a3a3a;
+}
+.studio-monitor__label { text-align: center; color: var(--fg-muted); }
+.studio-monitor__year { text-align: right; }
+
+.studio-monitor__screen {
+  position: relative;
+  background: #1f1f1f;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  grid-template-rows: 22px 1fr 26px;
+  font-family: var(--font-mono);
+  color: #c9c5bd;
+}
+.editor__menubar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 12px;
+  background: #2a2a2a;
+  border-bottom: 1px solid #111;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a857c;
+}
+.editor__menubar span:first-child { color: #f2ede4; }
+.editor__workspace {
+  display: grid;
+  grid-template-columns: 28px 1fr 84px;
+  background: #1a1a1a;
+  min-height: 0;
+}
+.editor__tools {
+  background: #232323;
+  border-right: 1px solid #111;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.editor__tools i {
+  width: 14px; height: 14px;
+  border: 1px solid #4a4842;
+  border-radius: 2px;
+  display: block;
+  background: #1a1a1a;
+}
+.editor__tools i.is-active { background: var(--accent); border-color: var(--accent); }
+.editor__canvas {
+  position: relative;
+  background: repeating-conic-gradient(#2c2c2c 0% 25%, #262626 0% 50%) 0 0 / 14px 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  padding: 10px;
+}
+.editor__pane {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+}
+.editor__pane img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.editor__pane-label {
+  position: absolute;
+  top: 8px; left: 8px;
+  padding: 3px 7px;
+  background: rgba(0,0,0,0.7);
+  color: #f2ede4;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-left: 2px solid var(--accent);
+}
+.editor__divider {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.editor__divider::before,
+.editor__divider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 14px; height: 14px;
+  background: var(--accent);
+  border: 2px solid #1a1a1a;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+.editor__divider::before { top: 10%; }
+.editor__divider::after  { bottom: 10%; }
+
+.editor__panels {
+  background: #232323;
+  border-left: 1px solid #111;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a857c;
+}
+.editor__panel-title {
+  color: #c9c5bd;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #111;
+}
+.editor__row { display: flex; justify-content: space-between; }
+.editor__row b { color: #f2ede4; font-weight: 500; }
+.editor__layers { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; }
+.editor__layers div {
+  display: flex; gap: 4px; align-items: center;
+  padding: 2px 0;
+}
+.editor__layers div::before {
+  content: ''; width: 6px; height: 6px; background: #4a4842; border-radius: 1px;
+}
+.editor__layers div.is-on::before { background: var(--accent); }
+
+.editor__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  background: #2a2a2a;
+  border-top: 1px solid #111;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a857c;
+}
+.editor__status b { color: #f2ede4; font-weight: 500; }
+.editor__status .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.studio-monitor__stand {
+  width: 38%;
+  height: 18px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #1A1A1A, #0d0d0d);
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset;
+}
+.studio-monitor__base {
+  width: 56%;
+  height: 6px;
+  margin: 4px auto 0;
+  background: #141414;
+  border-radius: 4px;
+  box-shadow: 0 16px 30px -10px rgba(0,0,0,0.7);
+}
+
+/* ---------- Listing Studio teaser before/after (homepage) ---------- */
 .pt-compare {
   position: relative;
   display: grid;

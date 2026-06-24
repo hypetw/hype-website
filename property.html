@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Property Listing Photos Ireland | 24hr Delivery — HYPE</title>
-  <meta name="description" content="Transform smartphone photos into professional property listings using AI. Virtual staging, CGI renders and sky replacement from €60. Delivered in under 24 hours.">
+  <title>HYPE Listing Studio — Editorial Property Content for Developers & Premium Agencies</title>
+  <meta name="description" content="A property content studio producing editorial-grade listing imagery, films and collateral for developers and premium estate agencies. Available across Ireland, the UK and internationally.">
   <meta name="author" content="HYPE Marketing & Media">
-  <meta property="og:title" content="AI Property Listing Photos Ireland | HYPE Property AI">
-  <meta property="og:description" content="Professional AI-enhanced property imagery from €60. Virtual staging, sky replacement, CGI renders. Delivered in under 24 hours across Ireland.">
+  <meta property="og:title" content="HYPE Listing Studio">
+  <meta property="og:description" content="Editorial property content for developers and premium estate agencies. Engagements from €1,500/month.">
   <meta property="og:url" content="https://www.hypedigital.ie/property.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="HYPE Marketing & Media">
@@ -18,11 +18,721 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       HYPE Listing Studio — page-scoped styles
+       Editorial layer over HYPE's dark/red palette
+       ============================================================ */
+    :root {
+      --font-serif: 'Fraunces', 'Times New Roman', serif;
+      --paper: #F4EFE7;
+      --paper-soft: #EBE5DA;
+      --ink: #0A0A0A;
+      --rule: rgba(10,10,10,0.12);
+      --rule-soft: rgba(10,10,10,0.06);
+      --ink-muted: #4A4A48;
+      --ink-dim: #8B8780;
+    }
+
+    /* page baseline */
+    body.studio { background: var(--ink); color: #fff; }
+    .studio h1, .studio h2, .studio h3, .studio h4 { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.015em; }
+    .studio .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--fg-muted);
+      display: inline-flex; align-items: center; gap: 12px;
+    }
+    .studio .eyebrow::before {
+      content: ''; width: 28px; height: 1px; background: var(--accent);
+    }
+    .studio .eyebrow--ink { color: var(--ink-muted); }
+    .studio .eyebrow--ink::before { background: var(--accent); }
+
+    /* ============ NAV override for studio ============ */
+    .nav--studio .nav__links a.is-current { color: var(--accent); }
+
+    /* ============ HERO ============ */
+    .studio-hero {
+      position: relative;
+      padding: clamp(120px, 14vw, 180px) 0 clamp(80px, 10vw, 140px);
+      overflow: hidden;
+    }
+    .studio-hero__grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse at 60% 40%, #000 30%, transparent 75%);
+              mask-image: radial-gradient(ellipse at 60% 40%, #000 30%, transparent 75%);
+      pointer-events: none;
+    }
+    .studio-hero__inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: center;
+    }
+    @media (max-width: 960px) {
+      .studio-hero__inner { grid-template-columns: 1fr; }
+    }
+
+    .studio-hero__copy { max-width: 36rem; }
+    .studio-hero__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5.4vw, 4.6rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      font-weight: 300;
+      margin: 28px 0 28px;
+      color: #fff;
+    }
+    .studio-hero__headline em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 400;
+    }
+    .studio-hero__sub {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--fg-muted);
+      max-width: 32rem;
+    }
+    .studio-hero__ctas {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      margin-top: 36px;
+    }
+    .studio-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 26px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 300ms var(--ease), color 300ms var(--ease),
+                  border-color 300ms var(--ease), transform 300ms var(--ease);
+    }
+    .studio-btn svg { transition: transform 300ms var(--ease); }
+    .studio-btn:hover svg { transform: translateX(3px); }
+    .studio-btn--primary { background: var(--accent); color: #fff; }
+    .studio-btn--primary:hover { background: var(--accent-hi); }
+    .studio-btn--ghost {
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+    }
+    .studio-btn--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.04); }
+    .studio-btn--ink { background: var(--ink); color: var(--paper); }
+    .studio-btn--ink:hover { background: #1c1c1c; }
+
+    .studio-hero__meta {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .studio-hero__meta dt {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      margin-bottom: 6px;
+    }
+    .studio-hero__meta dd {
+      font-family: var(--font-serif);
+      font-size: 0.98rem;
+      color: #fff;
+      margin: 0;
+    }
+
+    /* ============ MONITOR / FLOOR PLAN ============ */
+    .studio-monitor {
+      position: relative;
+      width: 100%;
+      max-width: 640px;
+      justify-self: end;
+    }
+    @media (max-width: 960px) { .studio-monitor { justify-self: center; margin-top: 24px; } }
+
+    .studio-monitor__frame {
+      position: relative;
+      background: #1A1A1A;
+      border: 1px solid #2a2a2a;
+      border-radius: 14px;
+      padding: 14px 14px 18px;
+      box-shadow:
+        0 40px 80px -20px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .studio-monitor__bezel {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 0 4px 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+    }
+    .studio-monitor__dots { display: inline-flex; gap: 6px; }
+    .studio-monitor__dots span {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: #3a3a3a;
+    }
+    .studio-monitor__label { text-align: center; color: var(--fg-muted); }
+    .studio-monitor__year { text-align: right; }
+
+    .studio-monitor__screen {
+      position: relative;
+      background: #1f1f1f;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      display: grid;
+      grid-template-rows: 22px 1fr 26px;
+      font-family: var(--font-mono);
+      color: #c9c5bd;
+    }
+    /* editor menu bar */
+    .editor__menubar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 12px;
+      background: #2a2a2a;
+      border-bottom: 1px solid #111;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8a857c;
+    }
+    .editor__menubar span:first-child { color: #f2ede4; }
+    /* editor workspace: tools | canvas | panels */
+    .editor__workspace {
+      display: grid;
+      grid-template-columns: 28px 1fr 84px;
+      background: #1a1a1a;
+      min-height: 0;
+    }
+    .editor__tools {
+      background: #232323;
+      border-right: 1px solid #111;
+      padding: 8px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .editor__tools i {
+      width: 14px; height: 14px;
+      border: 1px solid #4a4842;
+      border-radius: 2px;
+      display: block;
+      background: #1a1a1a;
+    }
+    .editor__tools i.is-active { background: var(--accent); border-color: var(--accent); }
+    .editor__canvas {
+      position: relative;
+      background:
+        repeating-conic-gradient(#2c2c2c 0% 25%, #262626 0% 50%) 0 0 / 14px 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      padding: 10px;
+    }
+    .editor__pane {
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    .editor__pane img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .editor__pane-label {
+      position: absolute;
+      top: 8px; left: 8px;
+      padding: 3px 7px;
+      background: rgba(0,0,0,0.7);
+      color: #f2ede4;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border-left: 2px solid var(--accent);
+    }
+    .editor__divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: var(--accent);
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    .editor__divider::before,
+    .editor__divider::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 14px; height: 14px;
+      background: var(--accent);
+      border: 2px solid #1a1a1a;
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+    .editor__divider::before { top: 10%; }
+    .editor__divider::after  { bottom: 10%; }
+
+    .editor__panels {
+      background: #232323;
+      border-left: 1px solid #111;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a857c;
+    }
+    .editor__panel-title {
+      color: #c9c5bd;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #111;
+    }
+    .editor__row { display: flex; justify-content: space-between; }
+    .editor__row b { color: #f2ede4; font-weight: 500; }
+    .editor__layers { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; }
+    .editor__layers div {
+      display: flex; gap: 4px; align-items: center;
+      padding: 2px 0;
+    }
+    .editor__layers div::before {
+      content: ''; width: 6px; height: 6px; background: #4a4842; border-radius: 1px;
+    }
+    .editor__layers div.is-on::before { background: var(--accent); }
+
+    /* status bar */
+    .editor__status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      background: #2a2a2a;
+      border-top: 1px solid #111;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8a857c;
+    }
+    .editor__status b { color: #f2ede4; font-weight: 500; }
+    .editor__status .dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .studio-monitor__stand {
+      width: 38%;
+      height: 18px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #1A1A1A, #0d0d0d);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset;
+    }
+    .studio-monitor__base {
+      width: 56%;
+      height: 6px;
+      margin: 4px auto 0;
+      background: #141414;
+      border-radius: 4px;
+      box-shadow: 0 16px 30px -10px rgba(0,0,0,0.7);
+    }
+
+
+    /* ============ SECTION CHROME ============ */
+    .studio-section {
+      padding: clamp(96px, 12vw, 160px) 0;
+      position: relative;
+    }
+    .studio-section--paper { background: var(--paper); color: var(--ink); }
+    .studio-section--paper h2 { color: var(--ink); }
+    .studio-section__head { margin-bottom: clamp(56px, 7vw, 96px); max-width: 56rem; }
+    .studio-section__title {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.018em;
+      margin-top: 24px;
+      max-width: 22ch;
+    }
+    .studio-section__title em { font-style: italic; color: var(--accent); font-weight: 400; }
+    .studio-section__lede {
+      margin-top: 24px;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--ink-muted);
+      max-width: 48ch;
+    }
+    .studio-section--ink .studio-section__lede { color: var(--fg-muted); }
+
+    /* ============ PILLARS ============ */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(32px, 4vw, 64px);
+    }
+    @media (max-width: 860px) { .pillars { grid-template-columns: 1fr; gap: 48px; } }
+    .pillar {
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+    }
+    .pillar__num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 28px;
+    }
+    .pillar__title {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .pillar__body {
+      color: var(--ink-muted);
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    /* ============ FLAGSHIP ============ */
+    .flagship {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(40px, 5vw, 64px);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .flagship__visual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(160deg, #2a2a2a, #0d0d0d);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    .flagship__visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(230,57,70,0.18), transparent 60%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 12px);
+    }
+    .flagship__placeholder {
+      position: relative;
+      padding: 32px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .flagship__placeholder span:first-child { color: var(--fg-dim); }
+
+    /* Flagship film (YouTube embed) */
+    .flagship__visual--film {
+      aspect-ratio: 16 / 9;
+      align-items: stretch;
+      padding: 0;
+      background: #000;
+    }
+    .flagship__visual--film::before { display: none; }
+    .flagship__film {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .flagship__film iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .flagship__heading {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: #fff;
+      margin: 0 0 20px;
+      max-width: 22ch;
+    }
+    .flagship__heading em { font-style: italic; color: var(--accent); font-weight: 400; }
+    .flagship__lede {
+      color: var(--fg-muted);
+      line-height: 1.7;
+      font-size: 1rem;
+      margin: 0 0 28px;
+      max-width: 42ch;
+    }
+    .flagship__tag {
+      position: absolute;
+      top: 24px; left: 24px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .flagship__copy {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
+    }
+    @media (max-width: 720px) { .flagship__copy { grid-template-columns: 1fr; gap: 32px; } }
+    .flagship__num {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+    }
+    .flagship__quote {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .flagship__quote em { color: var(--accent); font-style: italic; }
+    .flagship__meta {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+    .flagship__lede { margin-bottom: 28px; }
+    .flagship__quote { margin: 0; }
+    .flagship__sig {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-style: normal;
+    }
+    .flagship__sig-name {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .flagship__sig-role {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    /* ============ PROCESS ============ */
+    .process {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    @media (max-width: 860px) { .process { grid-template-columns: 1fr; } }
+    .phase {
+      padding: 0 clamp(20px, 3vw, 40px);
+      border-left: 1px solid var(--rule);
+    }
+    .phase:first-child { padding-left: 0; border-left: 0; }
+    @media (max-width: 860px) {
+      .phase { padding: 32px 0; border-left: 0; border-top: 1px solid var(--rule); }
+      .phase:first-child { padding-top: 0; border-top: 0; }
+    }
+    .phase__num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: block;
+    }
+    .phase__title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .phase__body {
+      color: var(--ink-muted);
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    /* ============ INQUIRY ============ */
+    .inquiry {
+      display: grid;
+      grid-template-columns: 6fr 5fr;
+      gap: clamp(48px, 6vw, 96px);
+      align-items: start;
+    }
+    @media (max-width: 860px) { .inquiry { grid-template-columns: 1fr; } }
+    .inquiry__title {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+      color: #fff;
+      max-width: 18ch;
+    }
+    .inquiry__title em { font-style: italic; color: var(--accent); font-weight: 400; }
+    .inquiry__lede {
+      margin-top: 24px;
+      color: var(--fg-muted);
+      max-width: 38ch;
+      line-height: 1.7;
+    }
+    .inquiry__email {
+      display: inline-block;
+      margin-top: 36px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: #fff;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 6px;
+      transition: color 240ms var(--ease);
+    }
+    .inquiry__email:hover { color: var(--accent); }
+    .inquiry__meta {
+      margin-top: 32px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      line-height: 1.8;
+    }
+
+    .criteria {
+      border: 1px solid var(--border-hi);
+      padding: 32px;
+      background: rgba(255,255,255,0.02);
+    }
+    .criteria__title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .criteria__list {
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    .criteria__list li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 14px;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: #fff;
+    }
+    .criteria__list li::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 8px;
+    }
+    .criteria__list li:last-child {
+      padding-top: 18px;
+      margin-top: 4px;
+      border-top: 1px solid var(--border);
+      color: var(--fg-muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+    .criteria__list li:last-child::before {
+      background: transparent; border: 1px solid var(--accent);
+    }
+
+    /* ============ FOOTER override ============ */
+    .studio-footline {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 32px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .studio-footline strong { color: #fff; font-weight: 500; letter-spacing: 0.18em; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
 </head>
-<body>
+<body class="studio">
 
   <!-- ════════ NAV ════════ -->
-  <header class="nav">
+  <header class="nav nav--studio">
     <div class="container nav__inner">
       <a href="index.html" class="hype-lock" aria-label="HYPE home">
         <span class="hype-mark" aria-hidden="true">
@@ -39,15 +749,12 @@
         <span class="hype-lock__word">HYPE</span>
       </a>
       <nav class="nav__links" aria-label="Primary">
-        <a href="index.html#work">Work</a>
-        <a href="index.html#work">Creative</a>
-        <a href="property.html">Property AI</a>
-        <a href="blog/">Field Notes</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#inquiry">Inquiry</a>
       </nav>
-      <a href="#pc" class="nav__cta">
-        Try It Free
+      <a href="#inquiry" class="nav__cta">
+        Apply
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
       <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
@@ -78,300 +785,263 @@
       </button>
     </div>
     <nav class="mobile-menu__links" aria-label="Mobile">
-      <a href="index.html#work">Work</a>
-      <a href="index.html#work">Creative</a>
-      <a href="property.html">Property AI</a>
-      <a href="blog/">Field Notes</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#inquiry">Inquiry</a>
+      <a href="index.html">Main site</a>
     </nav>
   </div>
 
   <!-- ════════ HERO ════════ -->
-  <section class="prop-hero container">
-    <span class="prop-hero__label">HYPE / Product 02 — Property AI</span>
-    <h1 class="prop-hero__title">
-      Phone photos.<br/>
-      Premium listings.<br/>
-      <em>24 hours.</em>
-    </h1>
-    <div class="prop-hero__row">
-      <p class="prop-hero__lede">
-        <strong>Shoot on any smartphone.</strong> Upload the photos. Our AI pipeline delivers magazine-grade listing imagery — perfect light, twilight skies, virtual staging, clean interiors — in under a working day. Priced for volume. Built for agents and developers who don't have time to wait.
-      </p>
-      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="#pc" class="btn btn--primary">
-          Send Your First Listing Free
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-        <a href="#how" class="btn btn--ghost">How It Works</a>
-      </div>
-    </div>
-  </section>
+  <section class="studio-hero">
+    <div class="studio-hero__grid-bg" aria-hidden="true"></div>
+    <div class="container studio-hero__inner">
 
-  <!-- ════════ HOW IT WORKS ════════ -->
-  <section class="section" id="how">
-    <div class="container">
-      <img class="section-sketch" src="images/property-ai-sketch.png" alt="" aria-hidden="true" loading="lazy"/>
-      <div class="section-head">
-        <div>
-          <span class="label label--accent">01 — How It Works</span>
-          <h2 class="section-title">Three steps.<br/>One working <em>day.</em></h2>
-        </div>
-        <p class="section-lede" style="max-width: 36ch; text-align: right;">
-          No photographer bookings. No reshoots. No waiting a week for proofs.
+      <div class="studio-hero__copy">
+        <span class="eyebrow">A Property Content Studio</span>
+        <h1 class="studio-hero__headline">
+          Listings that read like <em>architecture</em>, not advertising.
+        </h1>
+        <p class="studio-hero__sub">
+          We produce editorial-grade imagery, films and collateral for property developers and premium estate agencies. One creative direction, every asset made in-house, delivered ready for market.
         </p>
-      </div>
-
-      <div class="how">
-        <div class="how__step">
-          <span class="how__num">Step 01</span>
-          <h3 class="how__title">Shoot on any phone</h3>
-          <p class="how__desc">
-            Walk the property. Snap every room with the camera you already have.
-            Good light isn't required — our AI handles exposure, balance, and sky.
-          </p>
-        </div>
-        <div class="how__step">
-          <span class="how__num">Step 02</span>
-          <h3 class="how__title">Upload &amp; brief us</h3>
-          <p class="how__desc">
-            Drop the photos in our portal. Tell us what you want — daylight,
-            twilight, staged, decluttered. We queue the job immediately.
-          </p>
-        </div>
-        <div class="how__step">
-          <span class="how__num">Step 03</span>
-          <h3 class="how__title">Delivery in 24h</h3>
-          <p class="how__desc">
-            Finished, retouched, listing-ready images land in your inbox the
-            next working day. Presets for Daft, MyHome, Rightmove, and social.
-          </p>
-        </div>
-      </div>
-
-      <div class="compare" aria-label="Before and after comparison">
-        <figure class="compare__panel compare__panel--before">
-          <img src="images/property/before.jpg" alt="Raw smartphone photo of a property under construction" loading="lazy"/>
-          <span class="compare__label">Before — Phone</span>
-        </figure>
-        <figure class="compare__panel compare__panel--after">
-          <img src="images/property/after.jpg" alt="Same property after HYPE Property AI processing — finished landscape, twilight sky, virtual staging" loading="lazy"/>
-          <span class="compare__label">After — HYPE Property AI</span>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ PRICING ════════ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="label label--accent">02 — Pricing</span>
-          <h2 class="section-title">Priced per listing.<br/>No <em>retainer.</em></h2>
-        </div>
-        <p class="section-lede" style="max-width: 36ch; text-align: right;">
-          Pay for what you shoot. First listing is on us.
-        </p>
-      </div>
-
-      <div class="pricing">
-        <div class="pricing__card">
-          <div class="pricing__label">Standard rate</div>
-          <div class="pricing__price">€<em>60</em></div>
-          <div class="pricing__unit">per finished listing &nbsp;·&nbsp; volume discounts from 20</div>
-
-          <ul class="pricing__list">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              Exposure, white-balance, and perspective correction
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              Sky replacement — daylight or twilight
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              Virtual staging for empty rooms
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              CGI render deliverables on request
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              Declutter, object removal, lens straightening
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              Export presets for Daft, MyHome, Rightmove
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              Under-24-hour delivery, 7 days a week
-            </li>
-          </ul>
-
-          <a href="#pc" class="btn btn--primary">
-            Send Your First Listing Free
+        <div class="studio-hero__ctas">
+          <a href="#inquiry" class="studio-btn studio-btn--primary">
+            Apply for partnership
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
+          <a href="#work" class="studio-btn studio-btn--ghost">View flagship work</a>
         </div>
 
-        <div class="pricing__notes">
-          <h3>Volume &amp; agency rates</h3>
-          <p>High-volume agencies get negotiated flat rates for 20+ listings per month, priority queues, and branded delivery portals.</p>
-          <h3>Developer packages</h3>
-          <p>Building a scheme? Bespoke CGI packages for new developments — interior renders, exterior visualisations, twilight sets.</p>
-          <h3>Rework included</h3>
-          <p>Every listing comes with one free round of revisions. If it's not right, we fix it — no questions.</p>
-        </div>
+        <dl class="studio-hero__meta">
+          <div>
+            <dt>Active since</dt>
+            <dd>2019</dd>
+          </div>
+          <div>
+            <dt>Studio</dt>
+            <dd>Cork, Ireland</dd>
+          </div>
+          <div>
+            <dt>Working with</dt>
+            <dd>Developers &amp; premium agencies</dd>
+          </div>
+        </dl>
       </div>
+
+      <!-- ============ MONITOR ============ -->
+      <div class="studio-monitor" aria-hidden="false">
+        <div class="studio-monitor__frame">
+          <div class="studio-monitor__bezel">
+            <span class="studio-monitor__dots"><span></span><span></span><span></span></span>
+            <span class="studio-monitor__label">Listing 04 — Edit session</span>
+            <span class="studio-monitor__year">2026</span>
+          </div>
+
+          <div class="studio-monitor__screen">
+            <!-- Editor UI: before / after split, made by the studio's editors -->
+            <div class="editor__menubar">
+              <span>Studio</span><span>File</span><span>Edit</span><span>Image</span><span>Layer</span><span>View</span>
+            </div>
+            <div class="editor__workspace">
+              <div class="editor__tools" aria-hidden="true">
+                <i></i><i class="is-active"></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+              <div class="editor__canvas">
+                <div class="editor__pane">
+                  <img src="images/property/before.jpg" alt="Reference shot, before edit" loading="lazy"/>
+                  <span class="editor__pane-label">Before</span>
+                </div>
+                <div class="editor__pane">
+                  <img src="images/property/after.jpg" alt="Studio edit, after" loading="lazy"/>
+                  <span class="editor__pane-label">After</span>
+                </div>
+                <span class="editor__divider" aria-hidden="true"></span>
+              </div>
+              <aside class="editor__panels" aria-hidden="true">
+                <div>
+                  <div class="editor__panel-title">Listing 04</div>
+                  <div class="editor__row" style="margin-top:6px;"><span>Frame</span><b>21 / 48</b></div>
+                  <div class="editor__row"><span>Profile</span><b>Editorial</b></div>
+                </div>
+                <div>
+                  <div class="editor__panel-title">Layers</div>
+                  <div class="editor__layers">
+                    <div class="is-on">Sky</div>
+                    <div class="is-on">Light</div>
+                    <div class="is-on">Lawn</div>
+                    <div>Mask 03</div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+            <div class="editor__status">
+              <span><span class="dot"></span>Edited by <b>Studio</b> — McCarthy / Listing 04</span>
+              <span>RGB · 16-bit · 4 200 × 2 800</span>
+            </div>
+          </div>
+        </div>
+        <div class="studio-monitor__stand" aria-hidden="true"></div>
+        <div class="studio-monitor__base" aria-hidden="true"></div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ════════ FAQ ════════ -->
-  <section class="section">
+  <!-- ════════ PILLARS ════════ -->
+  <section class="studio-section studio-section--paper" id="services">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="label label--accent">03 — FAQ</span>
-          <h2 class="section-title">Questions, <em>answered.</em></h2>
-        </div>
-        <p class="section-lede" style="max-width: 36ch; text-align: right;">
-          If yours isn't here, email property@hypedigital.ie and we'll reply the same day.
+      <div class="studio-section__head">
+        <span class="eyebrow eyebrow--ink">The studio</span>
+        <h2 class="studio-section__title">Three disciplines, one <em>creative direction.</em></h2>
+        <p class="studio-section__lede">
+          We work in three formats, all produced in-house, all held to the same editorial standard. A single team carries the property from brief to delivery.
         </p>
       </div>
 
-      <div class="faq">
-        <details open>
-          <summary>Do I need a professional camera?</summary>
-          <p>No. Any smartphone from the last four years will do. We optimise the images for you — exposure, colour, sharpness, perspective. Just walk the rooms and shoot wide.</p>
-        </details>
-        <details>
-          <summary>Is the output real or AI-generated?</summary>
-          <p>The rooms and the property are 100% real — your own photos. We use AI to enhance lighting, straighten walls, replace dull skies, and optionally stage empty rooms. We never fabricate rooms that don't exist.</p>
-        </details>
-        <details>
-          <summary>How long does delivery actually take?</summary>
-          <p>Standard turnaround is one working day (under 24 hours). Rush orders are available for 6-hour delivery at an additional cost.</p>
-        </details>
-        <details>
-          <summary>What formats do I get?</summary>
-          <p>Every listing is delivered as high-res JPEG plus portal-sized exports for Daft, MyHome, Rightmove, and social. Custom export presets for your agency portal available on request.</p>
-        </details>
-        <details>
-          <summary>Can I stage an empty property?</summary>
-          <p>Yes. Our virtual staging add-on furnishes empty rooms in a chosen style — Scandinavian, Modern Irish, Contemporary Luxury, and more.</p>
-        </details>
-        <details>
-          <summary>Is this compliant with property advertising guidelines?</summary>
-          <p>Yes. We enhance only lighting, colour, and staging — never misrepresent size, condition, or features. Virtually staged images are clearly labelled on delivery.</p>
-        </details>
+      <div class="pillars">
+        <article class="pillar">
+          <span class="pillar__num">01 — Imagery</span>
+          <h3 class="pillar__title">Listing imagery</h3>
+          <p class="pillar__body">
+            Editorial-grade stills, framed and graded for consistency across every listing in a scheme or portfolio. Standard delivery in 48 hours.
+          </p>
+        </article>
+        <article class="pillar">
+          <span class="pillar__num">02 — Motion</span>
+          <h3 class="pillar__title">Walkthroughs &amp; motion</h3>
+          <p class="pillar__body">
+            Property films, drone work, cinematic walkthroughs. Made to live on the listing page and in the launch campaign, not on a shelf.
+          </p>
+        </article>
+        <article class="pillar">
+          <span class="pillar__num">03 — Print</span>
+          <h3 class="pillar__title">Brochures &amp; collateral</h3>
+          <p class="pillar__body">
+            Print and digital pieces produced to architectural-monograph standard. Documents that hold their place on a partner's desk.
+          </p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ════════ CONTACT ════════ -->
-  <section class="contact" id="pc">
-    <div class="container contact__inner">
-      <h2 class="contact__title">Send us five photos.<br/>We'll handle the <em>rest.</em></h2>
-      <form
-        class="contact__form"
-        action="https://formsubmit.co/property@hypedigital.ie"
-        method="POST"
-      >
-        <input type="hidden" name="_subject" value="HYPE Property AI — Free listing trial"/>
-        <input type="hidden" name="_captcha" value="false"/>
-        <input type="hidden" name="_template" value="table"/>
-        <input type="email" name="email" placeholder="your@email.com" required aria-label="Your email" />
-        <button type="submit" class="btn btn--primary">
-          Start Free Trial
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </button>
-      </form>
-      <div class="contact__note">Or email property@hypedigital.ie &nbsp;·&nbsp; Cork, Ireland</div>
+  <!-- ════════ FLAGSHIP ════════ -->
+  <section class="studio-section studio-section--ink" id="work">
+    <div class="container">
+      <div class="studio-section__head">
+        <span class="eyebrow">Flagship work</span>
+        <h2 class="studio-section__title" style="color:#fff;">A multi-property visual programme, across a <em>launch cycle.</em></h2>
+      </div>
+
+      <div class="flagship">
+        <div class="flagship__visual flagship__visual--film">
+          <span class="flagship__tag">Spec Film · 2026 — Sans Souci, Lyford Cay</span>
+          <div class="flagship__film">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/zPxKfo76QEc?rel=0&modestbranding=1"
+              title="Spec Film — Sans Souci, Lyford Cay | Bahamas Beachfront Estate"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="flagship__copy">
+          <div>
+            <span class="flagship__num">Spec Film 01 / Sans Souci, Lyford Cay</span>
+            <h3 class="flagship__heading">Sans Souci, Lyford Cay <em>&mdash;</em> a Bahamas beachfront estate.</h3>
+            <p class="flagship__lede">
+              Your listing already has the photos. We turn them into the film that sells it. One of Lyford Cay's premier beachfront estates, filmed to the only standard HYPE Listing Studio works to, with every asset the campaign needs delivered from images you already own. No new shoot. Stop documenting the building. Start showing the life.
+            </p>
+            <p class="flagship__meta">Full case study available on request to qualified inquirers</p>
+          </div>
+          <div>
+            <blockquote class="flagship__quote">
+              &ldquo;A documentary film, a short video, the listing imagery, and the sales collateral, all built from a single visit, all carrying the same <em>language</em>, all delivered through the launch cycle.&rdquo;
+              <footer class="flagship__sig">
+                <span class="flagship__sig-name">Tiago Carvalho</span>
+                <span class="flagship__sig-role">CEO, HYPE Marketing &amp; Media Ltd.</span>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ PROCESS ════════ -->
+  <section class="studio-section studio-section--paper" id="process">
+    <div class="container">
+      <div class="studio-section__head">
+        <span class="eyebrow eyebrow--ink">Process</span>
+        <h2 class="studio-section__title">Brief. Production. <em>Delivery.</em></h2>
+        <p class="studio-section__lede">
+          Three phases. One team across all of them. Most projects move from first conversation to delivered assets in five to fourteen days.
+        </p>
+      </div>
+
+      <div class="process">
+        <article class="phase">
+          <span class="phase__num">Phase 01</span>
+          <h3 class="phase__title">Brief</h3>
+          <p class="phase__body">
+            We start with the property and the audience. What kind of buyer this scheme is for, what the architecture is saying, what role the imagery has to play across the launch.
+          </p>
+        </article>
+        <article class="phase">
+          <span class="phase__num">Phase 02</span>
+          <h3 class="phase__title">Production</h3>
+          <p class="phase__body">
+            One studio team produces every asset in-house. Single creative direction across image, motion, and print. No outsourced freelancers and no compromise in the handover.
+          </p>
+        </article>
+        <article class="phase">
+          <span class="phase__num">Phase 03</span>
+          <h3 class="phase__title">Delivery</h3>
+          <p class="phase__body">
+            Assets delivered ready for market in the formats your channels actually use. Most engagements close inside five to fourteen days from first brief.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ INQUIRY ════════ -->
+  <section class="studio-section studio-section--ink" id="inquiry">
+    <div class="container">
+      <div class="inquiry">
+        <div>
+          <span class="eyebrow">Inquiry</span>
+          <h2 class="inquiry__title">Working with a small number of clients, <em>deliberately.</em></h2>
+          <p class="inquiry__lede">
+            Briefs are reviewed personally. If the studio is the right partner for your scheme, we will reply with next steps.
+          </p>
+          <a href="mailto:property@hypedigital.ie?subject=Studio%20brief" class="inquiry__email">property@hypedigital.ie</a>
+          <p class="inquiry__meta">
+            Briefs reviewed within two working days<br/>
+            Available across Ireland, the UK, and internationally
+          </p>
+        </div>
+
+        <aside class="criteria" aria-label="Best fit for">
+          <h3 class="criteria__title">Best fit for</h3>
+          <ul class="criteria__list">
+            <li>Property developers launching new residential or commercial schemes</li>
+            <li>Estate agencies with a premium listing tier</li>
+            <li>Architecture and design firms wanting their work documented</li>
+            <li>Engagements from €1,500 / month upward</li>
+          </ul>
+        </aside>
+      </div>
     </div>
   </section>
 
   <!-- ════════ FOOTER ════════ -->
-  <footer class="footer">
+  <footer>
     <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <span class="hype-mark" aria-hidden="true">
-            <svg viewBox="0 0 100 100" width="56" height="56">
-              <rect x="6" y="6" width="24" height="24" rx="3" fill="#E63946"/>
-              <rect x="6" y="38" width="24" height="24" rx="3" fill="#E63946"/>
-              <rect x="6" y="70" width="24" height="24" rx="3" fill="#E63946"/>
-              <rect x="70" y="6" width="24" height="24" rx="3" fill="#E63946"/>
-              <rect x="70" y="38" width="24" height="24" rx="3" fill="#E63946"/>
-              <rect x="70" y="70" width="24" height="24" rx="3" fill="#E63946"/>
-              <rect x="38" y="38" width="24" height="24" rx="3" fill="#FFFFFF"/>
-            </svg>
-          </span>
-          <p class="footer__tag">HYPE Marketing &amp; Media. A creative agency in Cork, Ireland. Documentaries, brand films, social, and HYPE Property AI.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Studio</h4>
-          <ul>
-            <li><a href="index.html#work">Work</a></li>
-            <li><a href="blog/">Field Notes</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#creative">Services</a></li>
-            <li><a href="#">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="index.html#creative">Social &amp; Content</a></li>
-            <li><a href="index.html#creative">Documentary</a></li>
-            <li><a href="index.html#creative">PR &amp; Marketing</a></li>
-            <li><a href="property.html">Property AI</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">YouTube</a></li>
-            <li><a href="#">Vimeo</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:hello@hypedigital.ie">hello@hypedigital.ie</a></li>
-            <li><a href="mailto:property@hypedigital.ie">property@hypedigital.ie</a></li>
-            <li>Cork, Ireland</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>© 2026 HYPE Marketing &amp; Media</span>
-        <div class="footer__socials" aria-label="Social">
-          <a href="https://www.instagram.com/hypedigital.ie" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/hypedigitalnow" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@hypedigital.ie" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.967-1.166-1.946-1.284-2.628h.005c-.099-.566-.058-.933-.052-.933h-3.82v14.735c0 .197 0 .394-.008.588l-.001.073-.003.033v.01a3.232 3.232 0 0 1-1.625 2.565 3.176 3.176 0 0 1-1.574.415c-1.759 0-3.184-1.433-3.184-3.203 0-1.77 1.425-3.203 3.184-3.203a3.166 3.166 0 0 1 .988.158l.005-3.888a7.04 7.04 0 0 0-5.426 1.584 7.43 7.43 0 0 0-1.625 2.003c-.152.253-.728 1.309-.798 3.023-.044 .974.249 1.984.389 2.402v.008c.088 .245.427 1.082.978 1.787a8.099 8.099 0 0 0 1.556 1.536v-.01l.009.01c1.843 1.253 3.887 1.171 3.887 1.171.354-.014 1.54 0 2.886-.636 1.496-.71 2.348-1.763 2.348-1.763a7.315 7.315 0 0 0 1.279-2.129c.414-1.084.552-2.385.552-2.905V8.292c.046.027.66 .435.66 .435s.886.568 2.269.94c.991.264 2.327.32 2.327.32V5.795c-.467.051-1.416-.096-2.388-.579z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/hypedigital.ie" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="https://www.x.com/@hypedigitalnow" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@HYPEWorldMedia" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.35z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-          </a>
-        </div>
+      <div class="studio-footline">
+        <span><strong>HYPE</strong> &nbsp;·&nbsp; A division of HYPE Marketing &amp; Media Ltd</span>
+        <span>Cork &nbsp;·&nbsp; 2026</span>
       </div>
     </div>
   </footer>
