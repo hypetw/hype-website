@@ -11,7 +11,17 @@
   <meta property="og:url" content="https://www.hypedigital.ie/property.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="HYPE Marketing & Media">
-  <meta property="og:image" content="https://www.hypedigital.ie/images/hype-og-image.jpg">
+  <meta property="og:image" content="https://www.hypedigital.ie/images/blog/listing-studio-hero.jpg">
+  <meta property="og:image:secure_url" content="https://www.hypedigital.ie/images/blog/listing-studio-hero.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HYPE Listing Studio — before-and-after of a property, derelict on the left and finished on the right, with the studio mark over the centre">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HYPE Listing Studio">
+  <meta name="twitter:description" content="Editorial property content for developers and premium estate agencies.">
+  <meta name="twitter:image" content="https://www.hypedigital.ie/images/blog/listing-studio-hero.jpg">
+  <meta name="twitter:image:alt" content="HYPE Listing Studio — before-and-after of a property, derelict on the left and finished on the right, with the studio mark over the centre">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.hypedigital.ie/property.html">
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -466,26 +476,83 @@
     }
     .flagship__placeholder span:first-child { color: var(--fg-dim); }
 
-    /* Flagship film (YouTube embed) */
+    /* Flagship film (click-to-watch poster) */
     .flagship__visual--film {
       aspect-ratio: 16 / 9;
       align-items: stretch;
       padding: 0;
       background: #000;
+      display: block;
     }
     .flagship__visual--film::before { display: none; }
-    .flagship__film {
+    .flagship__poster {
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      isolation: isolate;
+    }
+    .flagship__poster-img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-    }
-    .flagship__film iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
+      object-fit: cover;
       display: block;
+      transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 400ms ease;
+      filter: brightness(0.88) saturate(0.95);
     }
+    .flagship__poster:hover .flagship__poster-img {
+      transform: scale(1.03);
+      filter: brightness(1) saturate(1);
+    }
+    .flagship__poster::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .flagship__play {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 78px; height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5),
+                  0 0 0 1px rgba(255,255,255,0.08);
+      z-index: 2;
+      transition: transform 300ms var(--ease), background 300ms var(--ease);
+    }
+    .flagship__play svg { margin-left: 4px; }
+    .flagship__poster:hover .flagship__play {
+      transform: translate(-50%, -50%) scale(1.06);
+      background: var(--accent-hi);
+    }
+    .flagship__poster-cta {
+      position: absolute;
+      bottom: 18px; right: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      z-index: 2;
+    }
+    .flagship__poster .flagship__tag { z-index: 2; }
 
     .flagship__heading {
       font-family: var(--font-serif);
@@ -934,18 +1001,24 @@
       </div>
 
       <div class="flagship">
-        <div class="flagship__visual flagship__visual--film">
+        <a class="flagship__visual flagship__visual--film flagship__poster"
+           href="https://youtu.be/zPxKfo76QEc"
+           target="_blank"
+           rel="noopener"
+           aria-label="Watch the Sans Souci, Lyford Cay spec film on YouTube">
           <span class="flagship__tag">Spec Film · 2026 — Sans Souci, Lyford Cay</span>
-          <div class="flagship__film">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/zPxKfo76QEc?rel=0&modestbranding=1"
-              title="Spec Film — Sans Souci, Lyford Cay | Bahamas Beachfront Estate"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-        </div>
+          <img class="flagship__poster-img"
+               src="https://img.youtube.com/vi/zPxKfo76QEc/maxresdefault.jpg"
+               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/zPxKfo76QEc/hqdefault.jpg';"
+               alt="Sans Souci, Lyford Cay — Bahamas beachfront estate. Spec film by HYPE Listing Studio."
+               loading="lazy"/>
+          <span class="flagship__play" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span class="flagship__poster-cta">Watch on YouTube
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+          </span>
+        </a>
         <div class="flagship__copy">
           <div>
             <span class="flagship__num">Spec Film 01 / Sans Souci, Lyford Cay</span>
