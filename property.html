@@ -383,6 +383,20 @@
     }
     .studio-section--paper { background: var(--paper); color: var(--ink); }
     .studio-section--paper h2 { color: var(--ink); }
+    .studio-section--charcoal {
+      background: #141414;
+      color: #fff;
+      position: relative;
+    }
+    .studio-section--charcoal::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.04), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,0.025), transparent 40%);
+      pointer-events: none;
+    }
+    .studio-section--charcoal h2 { color: #fff; }
     .studio-section__head { margin-bottom: clamp(56px, 7vw, 96px); max-width: 56rem; }
     .studio-section__title {
       font-family: var(--font-serif);
@@ -888,12 +902,37 @@
       flex-direction: column;
       max-width: 880px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
     .faq__item {
       border-top: 1px solid var(--rule);
       padding: 0;
     }
     .faq__item:last-of-type { border-bottom: 1px solid var(--rule); }
+
+    /* Charcoal-section overrides for the FAQ component */
+    .studio-section--charcoal .studio-section__head { position: relative; z-index: 1; }
+    .studio-section--charcoal .eyebrow { color: var(--fg-muted); }
+    .studio-section--charcoal .faq__item { border-top-color: rgba(255,255,255,0.10); }
+    .studio-section--charcoal .faq__item:last-of-type { border-bottom-color: rgba(255,255,255,0.10); }
+    .studio-section--charcoal .faq__q { color: #fff; }
+    .studio-section--charcoal .faq__a { color: rgba(255,255,255,0.66); }
+    .studio-section--charcoal .faq__toggle::before,
+    .studio-section--charcoal .faq__toggle::after { background: rgba(255,255,255,0.8); }
+    .studio-section--charcoal .faq__item[open] .faq__q { color: var(--accent); }
+    .studio-section--charcoal .faq__item[open] .faq__toggle::before { background: var(--accent); }
+    .studio-section--charcoal .faq__outro {
+      border-top-color: rgba(255,255,255,0.10);
+      position: relative;
+      z-index: 1;
+    }
+    .studio-section--charcoal .faq__outro p { color: #fff; }
+    .studio-section--charcoal .studio-btn--ink {
+      background: #fff;
+      color: #0a0a0a;
+    }
+    .studio-section--charcoal .studio-btn--ink:hover { background: var(--accent); color: #fff; }
     .faq__item summary {
       list-style: none;
       cursor: pointer;
@@ -1296,7 +1335,7 @@
   </section>
 
   <!-- ════════ FAQ ════════ -->
-  <section class="studio-section studio-section--paper" id="faq">
+  <section class="studio-section studio-section--charcoal" id="faq">
     <div class="container">
       <div class="studio-section__head" style="text-align:center; margin-left:auto; margin-right:auto;">
         <span class="eyebrow eyebrow--ink">Questions</span>
