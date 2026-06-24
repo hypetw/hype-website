@@ -718,6 +718,28 @@
       transition: color 240ms var(--ease);
     }
     .inquiry__email:hover { color: var(--accent); }
+    .inquiry__copied {
+      display: inline-block;
+      margin-left: 14px;
+      padding: 6px 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(230,57,70,0.10);
+      border: 1px solid rgba(230,57,70,0.40);
+      border-radius: 999px;
+      opacity: 0;
+      transform: translateY(4px);
+      pointer-events: none;
+      transition: opacity 240ms var(--ease), transform 240ms var(--ease);
+      vertical-align: middle;
+    }
+    .inquiry__copied.is-on {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .inquiry__meta {
       margin-top: 32px;
       font-family: var(--font-mono);
@@ -1089,7 +1111,11 @@
           <p class="inquiry__lede">
             Briefs are reviewed personally. If the studio is the right partner for your scheme, we will reply with next steps.
           </p>
-          <a href="mailto:property@hypedigital.ie?subject=Studio%20brief" class="inquiry__email">property@hypedigital.ie</a>
+          <a href="mailto:property@hypedigital.ie?subject=Studio%20brief"
+             class="inquiry__email"
+             data-email="property@hypedigital.ie"
+             id="inquiryEmail">property@hypedigital.ie</a>
+          <span class="inquiry__copied" id="inquiryCopied" aria-live="polite">Email copied to clipboard</span>
           <p class="inquiry__meta">
             Briefs reviewed within two working days<br/>
             Available across Ireland, the UK, and internationally
@@ -1120,5 +1146,49 @@
   </footer>
 
   <script src="app.js"></script>
+  <script>
+    // Inquiry email: trigger mailto AND copy to clipboard with a small toast.
+    // This way even users without a default mail handler get the address in hand.
+    (function () {
+      var link  = document.getElementById('inquiryEmail');
+      var toast = document.getElementById('inquiryCopied');
+      if (!link || !toast) return;
+      var addr = link.getAttribute('data-email') || link.textContent.trim();
+      var timer;
+
+      function showToast() {
+        toast.classList.add('is-on');
+        clearTimeout(timer);
+        timer = setTimeout(function () { toast.classList.remove('is-on'); }, 2400);
+      }
+
+      function copyAddr() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(addr).then(showToast).catch(legacyCopy);
+        }
+        legacyCopy();
+      }
+
+      function legacyCopy() {
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = addr;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast();
+        } catch (err) { /* silently ignore */ }
+      }
+
+      link.addEventListener('click', function () {
+        // Don't prevent default — let the browser try the mailto handler.
+        copyAddr();
+      });
+    })();
+  </script>
 </body>
 </html>
