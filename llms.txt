@@ -1,6 +1,6 @@
 # HYPE
 
-HYPE is a Cork creative agency making brand films, documentaries, social media and PR for hospitality, leisure, retail, food, drink and property brands across Ireland. Founded 2019.
+HYPE is a Cork creative agency and digital marketing agency running social media, paid ads, brand films, PR and video production for hospitality, leisure, retail, food, drink and property brands across Ireland. Founded 2019.
 
 ## Contact
 - Email: hello@hypedigital.ie
@@ -8,13 +8,18 @@ HYPE is a Cork creative agency making brand films, documentaries, social media a
 - Location: Cork, Ireland (service-area business, no public office)
 - Every client message answered within 24 hours
 
-## Services
+## Services (selling priority)
+- Social media management — https://www.hypedigital.ie/services/social-media-management-cork (from €2,700/month)
+- Paid social ads (Meta + TikTok) — https://www.hypedigital.ie/services/paid-social-ads-cork (included in the €2,700/month retainer; ad budget paid separately)
+- Content creation — https://www.hypedigital.ie/services/content-creation-cork (from €2,700/month)
 - Brand film production — https://www.hypedigital.ie/services/brand-films-ireland (from €3,300)
-- Social media management — https://www.hypedigital.ie/services/social-media-management-cork (€2,700/month)
-- Hospitality marketing — https://www.hypedigital.ie/services/hospitality-marketing-ireland (from €2,700/month)
 - Video production — https://www.hypedigital.ie/services/video-production-cork (from €3,300)
-- Property content and listing imagery — https://www.hypedigital.ie/services/property-ai-ireland
-- HYPE Listing Studio (property content for developers and premium agencies) — https://www.hypedigital.ie/property (from €1,500/month)
+- Corporate video production — https://www.hypedigital.ie/services/corporate-video-production-cork (from €3,300)
+- Documentary production — https://www.hypedigital.ie/services/documentary-production-ireland (quoted to scope, from €3,300)
+- PR and brand positioning — https://www.hypedigital.ie/services/pr-agency-cork (quoted to scope, from €3,300)
+- Hospitality marketing — https://www.hypedigital.ie/services/hospitality-marketing-ireland (from €2,700/month)
+- Property content — https://www.hypedigital.ie/services/property-ai-ireland
+- HYPE Listing Studio — https://www.hypedigital.ie/property (from €1,500/month; separate Listing Studio product)
 
 ## Field Notes (blog)
 - https://www.hypedigital.ie/blog/
@@ -26,3 +31,4 @@ HYPE is a Cork creative agency making brand films, documentaries, social media a
 - 22+ active clients
 - Founders: Tiago Carvalho (CEO & Co-founder), Andrea Williams (Co-founder & Content Director)
 - Legal entity: HYPE Marketing & Media Ltd.
+- Minimum prices: €3,300 one-off, €2,700/month retainer. Listing Studio is a separate product from €1,500/month.

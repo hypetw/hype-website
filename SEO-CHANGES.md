@@ -1,22 +1,24 @@
 # SEO-CHANGES.md
 
-Changes made against `SEO-FIX-BRIEF.md` v3 and `SEO-ANSWERS.md`, dated 15 Oct 2026.
+Changes made against `SEO-FIX-BRIEF.md` v6 and `SEO-ANSWERS.md` v4, dated 15 Oct 2026.
 Pending Tiago approval + GitHub push before deploy.
 
 ---
 
-## Headline numbers
+## Headline numbers (post Phase 5)
 
 | Gate | Result |
 |---|---|
-| JSON-LD blocks parse | **17 / 17 valid** |
-| Pages with exactly one `<h1>` | **16 / 16** real pages (`property-ai-listing-time.html` is a redirect stub, intentionally 0) |
+| JSON-LD blocks parse | **22 / 22 valid** |
+| Pages with exactly one `<h1>` | **21 / 21** real pages (property-ai-listing-time stub removed) |
 | `30+` anywhere on site | 0 |
 | `[[placeholder]]` anywhere | 0 |
 | `href="index.html…"` or `href="#"` placeholders | 0 |
 | Pages missing 24-hour NAP line | 0 |
-| Pages with `lang="en-IE"` | 17 / 17 |
-| Pages with `twitter:card=summary_large_image` | 17 / 17 |
+| Pages with `lang="en-IE"` | 22 / 22 |
+| Pages with `twitter:card=summary_large_image` | 22 / 22 |
+| New service pages built | 5 (paid social ads, content creation, corporate video, documentary, PR) |
+| Sitemap URLs | 22 (5 new pages included) |
 
 ---
 
@@ -192,36 +194,107 @@ lang != en-IE:        0
 
 ---
 
-## What stays for Tiago (Phase 5 + section 9)
+## Round 2 — fixes from the live check (shipped as commit `c5665c1`)
 
-### Phase 5 — 8 new service pages (deferred per instruction)
-Tier 1 pages still to build when confirmed:
-- `/services/website-design-cork`
-- `/services/corporate-video-production-cork`
-- `/services/content-creation-cork`
-- `/services/pr-agency-cork`
-- `/services/documentary-production-ireland` (Castle Freke Gin case study already in the brand films page as the hook)
-- `/services/photography-cork`
-- `/services/graphic-design-branding-cork`
-- `/services/drone-filming-cork`
+Eight items from the brief's Round 2:
+
+1. **Reel thumbnail alt text.** All six homepage YouTube thumbnails now carry descriptive alt text (Tommy "The Governor" Hyde, Sheena's Boutique, Óptica Coutinho, The Shelbourne Bar, The Elm Tree, Oh Molly).
+2. **Marquee duplicate set.** Already wrapped with `.marquee__dupes` + `aria-hidden="true"` from Phase 4 (confirmed).
+3. **Server-side 301 redirects.** Added to `vercel.json`:
+   - `/blog/property-ai-listing-time` → `/blog/listing-studio-sell-property-faster`
+   - `/blog/property-ai-listing-time.html` → `/blog/listing-studio-sell-property-faster`
+   - `/property.html` → `/property`
+   The old HTML redirect stub at `blog/property-ai-listing-time.html` is deleted.
+4. **"Who We Are" heading.** The homepage `#about` block now uses a real `<h2>` with the "02 — " prefix in a decorative `<span aria-hidden>`. Minor CSS adjust (`h2.label--heading`) to retain the mono-label styling.
+5. **Blog card titles.** Already `<h3>` on both `/#blog` and `/blog/` — no change required.
+6. **Unsourced stats on blog/hospitality-marketing-agency-ireland.html.** Two more de-quantified: "74% of diners choose where to eat based on social media" → "For a huge share of diners, where to eat is now a social media decision"; "two to three thousand euro a year in repeat visits" → "real money in repeat visits".
+7. **Author bio date.** "co-founding HYPE in Cork in 2019" → "co-founding HYPE in Cork" on all 9 posts. The year wasn't in SEO-ANSWERS so the claim is dropped.
+8. **Schema `knowsAbout`.** Removed "Website design", "Photography", "Drone filming", "Graphic design and branding". Added "Content creation". Matches SEO-ANSWERS v4 "never promoted" list.
+
+---
+
+## Phase 5 — new service pages + selling priority
+
+Five new service pages built with the brief 3.3 template, every fact drawn from SEO-ANSWERS.md v4. Each committed individually.
+
+| # | URL | Target searches | Commit |
+|---|---|---|---|
+| 1 | `/services/paid-social-ads-cork` | facebook ads ireland, meta ads agency ireland, instagram ads cork | `24f0bab` |
+| 2 | `/services/content-creation-cork` | content creator cork | `c731d02` |
+| 3 | `/services/corporate-video-production-cork` | corporate video cork, corporate video production ireland, video company cork | `d2b0ef9` |
+| 4 | `/services/documentary-production-ireland` | documentary production companies ireland, documentary filmmaking ireland | `5235647` |
+| 5 | `/services/pr-agency-cork` | pr company cork, pr agency cork | `8b8ae17` |
+
+Each page has:
+- Full brief 3.3 structure: H1 + intro + Who it's for + What's included + How it works + Recent work + Pricing + Why HYPE + 5–6 Q FAQ accordion + CTA + Related services.
+- Schema: `WebPage` + `Service` + `BreadcrumbList` + `FAQPage` (word-for-word matching the visible accordion).
+- Related services ordered per "Selling priority" rules: social media management first, then paid social ads, then the service's natural neighbours.
+- Prices lifted directly from SEO-ANSWERS: paid ads + content inside the €2,700/month retainer; corporate video, documentary and PR from €3,300 (quoted to scope where appropriate).
+
+### Selling priority copy edits
+- **Homepage hero sub + about block.** Reordered to lead with social media + paid ads + brand films + PR. "Cork creative agency and marketing agency" phrasing added for keyword targeting (creative agency Cork, marketing agency Cork, digital marketing agency Cork).
+- **Homepage "Two worlds" chip row.** Expanded from 4 chips to 9, led by Social media management and Paid social ads, in brief order of priority.
+- **`/services/social-media-management-cork`.** Intro now mentions "social media marketing agency" and "social media manager" naturally. The "Ads" bullet now links to the new paid social ads page.
+- **`/services/video-production-cork`.** Title/H1/intro already carry "videographer", "videography" and "video company" from Phase 2.3 — no change required.
+- **Footer "Services" column across all 21 existing pages.** Replaced with the full 11-item catalogue in selling-priority order (Social media management → Paid social ads → Content creation → Brand films → Video production → Corporate video → Documentary production → PR & brand positioning → Hospitality marketing → Property content → Listing Studio).
+
+### Blog in-body links to the new pages
+Each new page is linked from one blog post (over and above the footer):
+
+| New page | Linked from |
+|---|---|
+| Paid social ads | `blog/eu-social-media-restrictions-ireland.html` |
+| Content creation | `blog/film-not-feed.html` |
+| Corporate video production | `blog/brand-sprint.html` |
+| Documentary production | `blog/listing-studio-sell-property-faster.html` |
+| PR agency | `blog/trend-chasing-brand-strategy.html` |
+
+Pages the brief explicitly tells us **not** to build (per the "never promoted" rule): websites, photography, graphic design and branding, drone filming, influencer campaigns, wedding videography. None exist, none appear in nav, footer, sitemap, llms.txt or `knowsAbout`.
 
 Tier 2 (Dublin) and Tier 3 (sector pages) remain gated on real client work to show.
 
-### Section 9 — off-site actions you own
+---
+
+## Phase 6 — sitemap, llms.txt, redirects
+
+- **`sitemap.xml`** regenerated. 22 URLs total (homepage + property + blog index + 10 service pages + 9 blog posts). Clean URLs. No `index.html`. Service pages prioritised 0.9, blog posts 0.7–0.8.
+- **`llms.txt`** updated at the repo root with the full 11-item service list, correct pricing floors (incl. the €1,500 Listing Studio exception), the 2020 award citation and the founders' legal entity.
+- **`vercel.json`** carries three real 301 redirects (see Round 2 item 3). `robots.txt` untouched — correct as-is.
+- **IndexNow ping / Google Search Console submit** remain post-deploy actions you own.
+
+---
+
+## Phase 7 — final checks
+
+```
+JSON-LD:              22 valid, 0 invalid
+H1 count !=1:         0 real pages
+Titles outside range: 4 editorial titles 38–46 chars (deliberate)
+Descs outside range:  0
+Internal /services/* → real file: ALL RESOLVE
+'30+' anywhere:       0
+'[[' placeholders:    0
+Sitemap has 5 new pages: YES
+```
+
+---
+
+## For Tiago (things code can't fix)
+
 1. **Google Business Profile** — service-area business, Cork, same NAP as the site. Primary category: Marketing agency; secondary: Video production service.
-2. **Reviews** — 10+ Google reviews from the eight retainer clients is the biggest local-ranking lever.
+2. **Reviews** — 10+ Google reviews from the retainer clients is the biggest local-ranking lever.
 3. **Citations** — Cork Chamber, LEO Cork, Clutch, Golden Pages, LinkedIn company page. Use the same NAP string every time.
 4. **Backlinks** — client websites ("Film by HYPE" credit link), Cork Chamber 2020 award listing, local press for the launches, UCC.
-5. **Author bio final sign-off** — the Tiago bio currently reads: *"Co-founder and CEO of HYPE. 20 years in sales, 10 of them leading international hotel sales teams, before co-founding HYPE in Cork in 2019."* Confirm or edit before deploy.
-6. **Lighthouse mobile before/after** — run against `/`, one service page and one blog post and share the LCP / CLS / TBT numbers so the next perf pass has data to prioritise against.
-7. **IndexNow / Search Console** — submit the new sitemap, request indexing on the five service pages and the Field Notes hub.
+5. **Author bio final sign-off** — the Tiago bio reads: *"Co-founder and CEO of HYPE. 20 years in sales, 10 of them leading international hotel sales teams, before co-founding HYPE in Cork."* Confirm wording before deploy.
+6. **Lighthouse mobile before/after** — run against `/`, one service page and one blog post and share the LCP / CLS / TBT numbers so the next perf pass has data.
+7. **IndexNow / Search Console** — submit the new sitemap, request indexing on the five new service pages and `/blog/`.
 
 ---
 
-## One deliberate deviation from the brief
+## Deliberate deviation from the brief (still in place)
 
-- The brief 2.4 and 3.0 ground rule 5 instruct removing every price below `€2,700/month`, including Listing Studio's `€1,500 a month`. Tiago explicitly asked to **keep the `€1,500/month` floor on `/property`**. That price is in the "Best fit for" list, the FAQ #7 answer and the body copy on `property.html`, and in the `Service` schema `offers.priceSpecification.minPrice`. If you change your mind, three strings to swap on `property.html` plus the schema value.
+- Brief ground rule 5 originally wanted every price under €2,700/month removed, including Listing Studio's €1,500. SEO-FIX-BRIEF v6 then confirmed Listing Studio as a separate product at €1,500/month, so this is no longer a deviation. The `/property` prices (meta description, "Best fit for" list, FAQ #7, Service schema `minPrice`) all read €1,500/month, matching SEO-ANSWERS v4.
 
 ---
 
-Generated by Claude Code against SEO-FIX-BRIEF.md v3 and SEO-ANSWERS.md.
+Generated by Claude Code against SEO-FIX-BRIEF.md v6 and SEO-ANSWERS.md v4.
