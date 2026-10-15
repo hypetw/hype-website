@@ -13,7 +13,11 @@ Defaults: port 4173, directory = current working directory
 import os
 import re
 import sys
+import gzip
+import io
 from http.server import SimpleHTTPRequestHandler, HTTPServer
+
+GZIP_TYPES = ('text/html','text/css','application/javascript','text/javascript','application/json','image/svg+xml','text/plain','application/xml','text/xml')
 
 
 class RangeRequestHandler(SimpleHTTPRequestHandler):
@@ -29,7 +33,12 @@ class RangeRequestHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         path = self.translate_path(self.path)
         if os.path.isdir(path):
-            return super().do_GET()
+            # Try index.html in the directory
+            idx = os.path.join(path, 'index.html')
+            if os.path.isfile(idx):
+                path = idx
+            else:
+                return super().do_GET()
         if not os.path.isfile(path):
             self.send_error(404, "File not found")
             return
@@ -82,13 +91,33 @@ class RangeRequestHandler(SimpleHTTPRequestHandler):
                         remaining -= len(chunk)
                     return
 
+            # Gzip compressible text responses when client supports it
+            accept = (self.headers.get('Accept-Encoding') or '').lower()
+            if 'gzip' in accept and ctype.split(';',1)[0] in GZIP_TYPES:
+                raw = f.read()
+                buf = io.BytesIO()
+                with gzip.GzipFile(fileobj=buf, mode='wb', compresslevel=6) as gz:
+                    gz.write(raw)
+                body = buf.getvalue()
+                self.send_response(200)
+                self.send_header('Content-Type', ctype)
+                self.send_header('Content-Encoding', 'gzip')
+                self.send_header('Vary', 'Accept-Encoding')
+                self.send_header('Content-Length', str(len(body)))
+                self.send_header('Last-Modified', self.date_time_string(fs.st_mtime))
+                self.send_header('Cache-Control', 'public, max-age=3600')
+                self.end_headers()
+                try: self.wfile.write(body)
+                except (BrokenPipeError, ConnectionResetError): pass
+                return
+
             # Full response
             self.send_response(200)
             self.send_header('Content-Type', ctype)
             self.send_header('Accept-Ranges', 'bytes')
             self.send_header('Content-Length', str(size))
             self.send_header('Last-Modified', self.date_time_string(fs.st_mtime))
-            self.send_header('Cache-Control', 'no-store')
+            self.send_header('Cache-Control', 'public, max-age=3600')
             self.end_headers()
 
             while True:

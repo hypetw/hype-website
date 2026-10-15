@@ -19,9 +19,10 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.hypedigital.ie/blog/trend-chasing-brand-strategy.html">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preload" href="/fonts/intertight-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="style" href="../styles.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../styles.css"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -129,6 +130,8 @@
     </div>
   </header>
 
+  <main>
+
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-menu__head">
@@ -179,7 +182,7 @@
           <div class="article__byline">By <strong>Tiago Carvalho</strong> &middot; Published <time datetime="2026-09-18">18 September 2026</time> &middot; Updated <time datetime="2026-09-18">18 September 2026</time></div>
         </div>
         <div class="article__hero-img article__hero-img--wide" style="aspect-ratio: 16 / 9;">
-          <img src="../images/blog/trend-chasing-brand-strategy.jpg" alt="A pale, undead influencer in a black shirt wearing a gold chain that spells TRENDS, toothpick in her teeth: by the time you catch it, it's already dead" loading="eager" style="object-position: center;"/>
+          <img src="../images/blog/trend-chasing-brand-strategy.webp" alt="A pale, undead influencer in a black shirt wearing a gold chain that spells TRENDS, toothpick in her teeth: by the time you catch it, it's already dead" loading="eager" style="object-position: center;"/ width="1600" height="892">
         </div>
       </header>
 
@@ -281,7 +284,7 @@
         <span class="article__next-label">Next Article</span>
         <a href="ai-creative-agency-ireland.html" class="article__next-card">
           <div class="article__next-img">
-            <img src="../images/blog/ai-creative-agency-ireland.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/ai-creative-agency-ireland.webp" alt="" loading="lazy"/ width="1080" height="1349">
           </div>
           <div class="article__next-body">
             <div class="post__meta">
@@ -298,6 +301,8 @@
   </article>
 
   <!-- ════════ FOOTER ════════ -->
+</main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__top">

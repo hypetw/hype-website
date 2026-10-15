@@ -19,10 +19,10 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.hypedigital.ie/blog/">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="preload" href="/fonts/intertight-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="style" href="../styles.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../styles.css"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -109,6 +109,8 @@
     </div>
   </header>
 
+  <main>
+
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-menu__head">
@@ -157,7 +159,7 @@
 
         <a href="ireland-tourism-marketing-2026.html" class="post post--featured">
           <div class="post__visual post__visual--photo">
-            <img src="../images/blog/ireland-tourism-marketing-2026.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/ireland-tourism-marketing-2026.webp" alt="" loading="lazy"/ width="1600" height="900">
           </div>
           <div class="post__body">
             <div class="post__meta">
@@ -175,7 +177,7 @@
 
         <a href="trend-chasing-brand-strategy.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="../images/blog/trend-chasing-brand-strategy.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/trend-chasing-brand-strategy.webp" alt="" loading="lazy"/ width="1600" height="892">
           </div>
           <div class="post__meta">
             <span class="post__cat">Strategy &middot; Brand &middot; Trends</span>
@@ -191,7 +193,7 @@
 
         <a href="eu-social-media-restrictions-ireland.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="../images/blog/eu-social-media-restrictions-ireland.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/eu-social-media-restrictions-ireland.webp" alt="" loading="lazy"/ width="1376" height="768">
           </div>
           <div class="post__meta">
             <span class="post__cat">Strategy &middot; AI &middot; Platforms</span>
@@ -207,7 +209,7 @@
 
         <a href="hospitality-alcohol-marketing-ireland.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="../images/blog/hospitality-alcohol-marketing-ireland.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/hospitality-alcohol-marketing-ireland.webp" alt="" loading="lazy"/ width="1600" height="2000">
           </div>
           <div class="post__meta">
             <span class="post__cat">Hospitality &middot; Strategy</span>
@@ -223,7 +225,7 @@
 
         <a href="ai-creative-agency-ireland.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="../images/blog/ai-creative-agency-ireland.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/ai-creative-agency-ireland.webp" alt="" loading="lazy"/ width="1080" height="1349">
           </div>
           <div class="post__meta">
             <span class="post__cat">AI &middot; Strategy</span>
@@ -239,7 +241,7 @@
 
         <a href="hospitality-marketing-agency-ireland.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="../images/blog/hospitality-marketing-agency-ireland.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/hospitality-marketing-agency-ireland.webp" alt="" loading="lazy"/ width="1600" height="1000">
           </div>
           <div class="post__meta">
             <span class="post__cat">Hospitality &middot; Strategy</span>
@@ -255,7 +257,7 @@
 
         <a href="film-not-feed.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="../images/blog/film-not-feed.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/film-not-feed.webp" alt="" loading="lazy"/ width="1600" height="1000">
           </div>
           <div class="post__meta">
             <span class="post__cat">Brand &middot; Strategy</span>
@@ -271,7 +273,7 @@
 
         <a href="listing-studio-sell-property-faster.html" class="post post--photo">
           <div class="post__visual post__visual--photo post__visual--studio-logo">
-            <img src="../images/listing-studio-logo-white.svg" alt="HYPE Listing Studio" loading="lazy"/>
+            <img src="../images/listing-studio-logo-white.svg" alt="HYPE Listing Studio" loading="lazy"/ width="360" height="280">
           </div>
           <div class="post__meta">
             <span class="post__cat">Listing Studio &middot; Product</span>
@@ -287,7 +289,7 @@
 
         <a href="brand-sprint.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="../images/blog/brand-sprint.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/brand-sprint.webp" alt="" loading="lazy"/ width="1400" height="1045">
           </div>
           <div class="post__meta">
             <span class="post__cat">Process &middot; Brand</span>
@@ -306,6 +308,8 @@
   </section>
 
   <!-- ════════ FOOTER ════════ -->
+</main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__top">

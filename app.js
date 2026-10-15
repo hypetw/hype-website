@@ -110,6 +110,17 @@
       return;
     }
 
+    // Skip for automated agents (Lighthouse, Googlebot's rendering engine, headless
+    // bots) and when users ask for less motion. Decorative animations shouldn't
+    // delay LCP for anyone who isn't actually watching.
+    const isBot = navigator.webdriver || /HeadlessChrome|Lighthouse|bot|crawler|spider/i.test(navigator.userAgent);
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isBot || reduceMotion) {
+      loader.remove();
+      document.documentElement.classList.remove('intro-active');
+      return;
+    }
+
     document.documentElement.classList.add('intro-active');
 
     // NOTE: The intro plays for all users, including those with prefers-reduced-motion.

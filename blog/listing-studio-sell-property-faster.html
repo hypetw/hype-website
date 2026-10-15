@@ -19,9 +19,10 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.hypedigital.ie/blog/listing-studio-sell-property-faster.html">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preload" href="/fonts/intertight-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="style" href="../styles.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../styles.css"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -182,6 +183,8 @@
     </div>
   </header>
 
+  <main>
+
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-menu__head">
@@ -232,7 +235,7 @@
           <div class="article__byline">By <strong>Tiago Carvalho</strong> &middot; Published <time datetime="2026-06-24">24 June 2026</time> &middot; Updated <time datetime="2026-06-24">24 June 2026</time></div>
         </div>
         <div class="article__hero-img article__hero-img--logo">
-          <img src="../images/listing-studio-logo-white.svg" alt="HYPE Listing Studio" loading="eager"/>
+          <img src="../images/listing-studio-logo-white.svg" alt="HYPE Listing Studio" loading="eager"/ width="360" height="280">
         </div>
       </header>
 
@@ -339,7 +342,7 @@
         <span class="article__next-label">Next Article</span>
         <a href="brand-sprint.html" class="article__next-card">
           <div class="article__next-img">
-            <img src="../images/blog/brand-sprint.jpg" alt="" loading="lazy"/>
+            <img src="../images/blog/brand-sprint.webp" alt="" loading="lazy"/ width="1400" height="1045">
           </div>
           <div class="article__next-body">
             <div class="post__meta">
@@ -356,6 +359,8 @@
   </article>
 
   <!-- ════════ FOOTER ════════ -->
+</main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__top">

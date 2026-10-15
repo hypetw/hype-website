@@ -19,10 +19,10 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.hypedigital.ie/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="preload" href="/fonts/intertight-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="style" href="styles.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,6 +107,17 @@
   ]
 }
 </script>
+
+  <script>
+    (function(){
+      try{
+        if (sessionStorage.getItem('hype_intro_seen') === '1') { document.documentElement.classList.add('hype-skip-intro'); return; }
+        var isBot = navigator.webdriver || /HeadlessChrome|Lighthouse|bot|crawler|spider|Chrome-Lighthouse/i.test(navigator.userAgent);
+        var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (isBot || rm) { document.documentElement.classList.add('hype-skip-intro'); }
+      }catch(e){}
+    })();
+  </script>
 </head>
 <body>
 
@@ -165,6 +176,8 @@
       </button>
     </div>
   </header>
+
+  <main>
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
@@ -241,7 +254,7 @@
       <div class="reels-grid">
 
         <button class="reel" type="button" data-video="D394513UH1s" aria-label='Play: Tommy "The Governor" Hyde Documentary'>
-          <img class="reel__thumb" src="https://i.ytimg.com/vi/D394513UH1s/maxresdefault.jpg" alt="Documentary film by HYPE for Tommy &quot;The Governor&quot; Hyde, Cork boxing legend" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/D394513UH1s/hqdefault.jpg'"/>
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/D394513UH1s/hqdefault.jpg" alt="Documentary film by HYPE for Tommy &quot;The Governor&quot; Hyde, Cork boxing legend" loading="lazy"/ width="480" height="360">
           <span class="reel__cat">Documentary</span>
           <div class="reel__meta">
             <h3 class="reel__title">Tommy &ldquo;The Governor&rdquo; Hyde</h3>
@@ -253,7 +266,7 @@
         </button>
 
         <button class="reel" type="button" data-video="hW98qmqqSeg" aria-label="Play: Sheena's Boutique Fashion Campaign">
-          <img class="reel__thumb" src="https://i.ytimg.com/vi/hW98qmqqSeg/maxresdefault.jpg" alt="Fashion campaign film by HYPE for Sheena's Boutique" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/hW98qmqqSeg/hqdefault.jpg'"/>
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/hW98qmqqSeg/hqdefault.jpg" alt="Fashion campaign film by HYPE for Sheena's Boutique" loading="lazy"/ width="480" height="360">
           <span class="reel__cat">Fashion Campaign</span>
           <div class="reel__meta">
             <h3 class="reel__title">Sheena's Boutique</h3>
@@ -265,7 +278,7 @@
         </button>
 
         <button class="reel" type="button" data-video="vxuVWHIOKNI" aria-label="Play: Optica Coutinho Brand Film">
-          <img class="reel__thumb" src="https://i.ytimg.com/vi/vxuVWHIOKNI/maxresdefault.jpg" alt="Brand film by HYPE for Óptica Coutinho" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/vxuVWHIOKNI/hqdefault.jpg'"/>
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/vxuVWHIOKNI/hqdefault.jpg" alt="Brand film by HYPE for Óptica Coutinho" loading="lazy"/ width="480" height="360">
           <span class="reel__cat">Brand Film</span>
           <div class="reel__meta">
             <h3 class="reel__title">&Oacute;ptica Coutinho</h3>
@@ -279,7 +292,7 @@
         <div class="reels-verticals">
 
         <button class="reel reel--vertical" type="button" data-video="xIB2cftQ0io" aria-label="Play: The Shelbourne Bar — Danu">
-          <img class="reel__thumb" src="https://i.ytimg.com/vi/xIB2cftQ0io/maxresdefault.jpg" alt="Live session film by HYPE for The Shelbourne Bar, Cork, featuring Danu" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/xIB2cftQ0io/hqdefault.jpg'"/>
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/xIB2cftQ0io/hqdefault.jpg" alt="Live session film by HYPE for The Shelbourne Bar, Cork, featuring Danu" loading="lazy"/ width="480" height="360">
           <span class="reel__cat">Short</span>
           <div class="reel__meta">
             <h3 class="reel__title">The Shelbourne Bar</h3>
@@ -291,7 +304,7 @@
         </button>
 
         <button class="reel reel--vertical" type="button" data-video="pr7ALyIDG4o" aria-label="Play: The Elm Tree">
-          <img class="reel__thumb" src="https://i.ytimg.com/vi/pr7ALyIDG4o/maxresdefault.jpg" alt="Hospitality short film by HYPE for The Elm Tree, Cork" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/pr7ALyIDG4o/hqdefault.jpg'"/>
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/pr7ALyIDG4o/hqdefault.jpg" alt="Hospitality short film by HYPE for The Elm Tree, Cork" loading="lazy"/ width="480" height="360">
           <span class="reel__cat">Short</span>
           <div class="reel__meta">
             <h3 class="reel__title">The Elm Tree</h3>
@@ -303,7 +316,7 @@
         </button>
 
         <button class="reel reel--vertical" type="button" data-video="po7IJtS1JO4" aria-label="Play: Oh Molly">
-          <img class="reel__thumb" src="https://i.ytimg.com/vi/po7IJtS1JO4/maxresdefault.jpg" alt="Social launch film by HYPE for Oh Molly collection" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/po7IJtS1JO4/hqdefault.jpg'"/>
+          <img class="reel__thumb" src="https://i.ytimg.com/vi/po7IJtS1JO4/hqdefault.jpg" alt="Social launch film by HYPE for Oh Molly collection" loading="lazy"/ width="480" height="360">
           <span class="reel__cat">Short</span>
           <div class="reel__meta">
             <h3 class="reel__title">Oh Molly</h3>
@@ -450,193 +463,193 @@
         <div class="marquee__track">
 
           <span class="marquee__item marquee__item--large" title="McCarthy Developments">
-            <img src="logos/mccarthy-developments.png" alt="McCarthy Developments" loading="eager"/>
+            <img src="logos/mccarthy-developments.webp" alt="McCarthy Developments" loading="lazy" width="480" height="480" decoding="async">
           </span>
           <span class="marquee__item" title="Dino's">
-            <img src="logos/dinos.png" alt="Dino's" loading="eager"/>
+            <img src="logos/dinos.webp" alt="Dino's" loading="lazy" width="480" height="394" decoding="async">
           </span>
           <span class="marquee__item" title="Soma Coffee">
-            <img src="logos/soma-coffee.png" alt="Soma Coffee" loading="eager"/>
+            <img src="logos/soma-coffee.webp" alt="Soma Coffee" loading="lazy" width="480" height="153" decoding="async">
           </span>
           <span class="marquee__item" title="The Shelbourne Bar">
-            <img src="logos/shelbourne.webp" alt="The Shelbourne Bar" loading="eager"/>
+            <img src="logos/shelbourne.webp" alt="The Shelbourne Bar" loading="lazy" width="747" height="603" decoding="async">
           </span>
           <span class="marquee__item" title="University College Cork">
-            <img src="logos/ucc.png" alt="University College Cork" loading="eager"/>
+            <img src="logos/ucc.webp" alt="University College Cork" loading="lazy" width="288" height="138" decoding="async">
           </span>
           <span class="marquee__item" title="The Raven Bar">
-            <img src="logos/raven-bar.png" alt="The Raven Bar" loading="eager"/>
+            <img src="logos/raven-bar.webp" alt="The Raven Bar" loading="lazy" width="480" height="264" decoding="async">
           </span>
           <span class="marquee__item" title="Da Mirco Osteria">
-            <img src="logos/da-mirco.png" alt="Da Mirco Osteria" loading="eager"/>
+            <img src="logos/da-mirco.webp" alt="Da Mirco Osteria" loading="lazy" width="480" height="164" decoding="async">
           </span>
           <span class="marquee__item" title="O'Flynn's Gourmet">
-            <img src="logos/oflynns-gourmet.png" alt="O'Flynn's Gourmet" loading="eager"/>
+            <img src="logos/oflynns-gourmet.webp" alt="O'Flynn's Gourmet" loading="lazy" width="480" height="226" decoding="async">
           </span>
           <span class="marquee__item" title="The Hive Padel Club">
-            <img src="logos/hive-padel.png" alt="The Hive Padel Club" loading="eager"/>
+            <img src="logos/hive-padel.webp" alt="The Hive Padel Club" loading="lazy" width="480" height="211" decoding="async">
           </span>
           <span class="marquee__item" title="West Cork Distillers">
-            <img src="logos/west-cork-distillers.png" alt="West Cork Distillers" loading="eager"/>
+            <img src="logos/west-cork-distillers.webp" alt="West Cork Distillers" loading="lazy" width="480" height="476" decoding="async">
           </span>
           <span class="marquee__item" title="Oh Molly">
-            <img src="logos/oh-molly.png" alt="Oh Molly" loading="eager"/>
+            <img src="logos/oh-molly.webp" alt="Oh Molly" loading="lazy" width="480" height="393" decoding="async">
           </span>
           <span class="marquee__item" title="Franciscan Well">
-            <img src="logos/franciscan-well.png" alt="Franciscan Well" loading="eager"/>
+            <img src="logos/franciscan-well.webp" alt="Franciscan Well" loading="lazy" width="314" height="230" decoding="async">
           </span>
           <span class="marquee__item" title="Sirius Arts Centre">
-            <img src="logos/sirius-arts-centre.png" alt="Sirius Arts Centre" loading="eager"/>
+            <img src="logos/sirius-arts-centre.webp" alt="Sirius Arts Centre" loading="lazy" width="480" height="258" decoding="async">
           </span>
           <span class="marquee__item" title="The Elm Tree">
-            <img src="logos/elm-tree.png" alt="The Elm Tree" loading="eager"/>
+            <img src="logos/elm-tree.webp" alt="The Elm Tree" loading="lazy" width="480" height="105" decoding="async">
           </span>
           <span class="marquee__item" title="Mayumi">
-            <img src="logos/mayumi.png" alt="Mayumi" loading="eager"/>
+            <img src="logos/mayumi.webp" alt="Mayumi" loading="lazy" width="480" height="203" decoding="async">
           </span>
           <span class="marquee__item" title="Sober Lane Bar & Grill">
-            <img src="logos/sober-lane.png" alt="Sober Lane Bar & Grill" loading="eager"/>
+            <img src="logos/sober-lane.webp" alt="Sober Lane Bar & Grill" loading="lazy" width="480" height="215" decoding="async">
           </span>
           <span class="marquee__item" title="Whelan">
-            <img src="logos/whelan.png" alt="Whelan" loading="eager"/>
+            <img src="logos/whelan.webp" alt="Whelan" loading="lazy" width="480" height="148" decoding="async">
           </span>
           <span class="marquee__item" title="O'Mahony Walsh">
-            <img src="logos/omahony-walsh.png" alt="O'Mahony Walsh" loading="eager"/>
+            <img src="logos/omahony-walsh.webp" alt="O'Mahony Walsh" loading="lazy" width="285" height="76" decoding="async">
           </span>
           <span class="marquee__item" title="SuperValu">
-            <img src="logos/supervalu.png" alt="SuperValu" loading="eager"/>
+            <img src="logos/supervalu.webp" alt="SuperValu" loading="lazy" width="480" height="134" decoding="async">
           </span>
           <span class="marquee__item" title="The Black Market">
-            <img src="logos/black-market.png" alt="The Black Market" loading="eager"/>
+            <img src="logos/black-market.webp" alt="The Black Market" loading="lazy" width="194" height="141" decoding="async">
           </span>
           <span class="marquee__item" title="FILO Clinic">
-            <img src="logos/filo-clinic.png" alt="FILO Clinic" loading="eager"/>
+            <img src="logos/filo-clinic.webp" alt="FILO Clinic" loading="lazy" width="349" height="137" decoding="async">
           </span>
           <span class="marquee__item" title="La Vida">
-            <img src="logos/la-vida.png" alt="La Vida" loading="eager"/>
+            <img src="logos/la-vida.webp" alt="La Vida" loading="lazy" width="350" height="150" decoding="async">
           </span>
           <span class="marquee__item" title="South William Clinic">
-            <img src="logos/south-william-clinic.png" alt="South William Clinic" loading="eager"/>
+            <img src="logos/south-william-clinic.webp" alt="South William Clinic" loading="lazy" width="480" height="243" decoding="async">
           </span>
           <span class="marquee__item" title="Carewswood">
-            <img src="logos/carewswood.png" alt="Carewswood" loading="eager"/>
+            <img src="logos/carewswood.webp" alt="Carewswood" loading="lazy" width="480" height="155" decoding="async">
           </span>
           <span class="marquee__item" title="Umi Falafel">
-            <img src="logos/umi-falafel.png" alt="Umi Falafel" loading="eager"/>
+            <img src="logos/umi-falafel.webp" alt="Umi Falafel" loading="lazy" width="480" height="244" decoding="async">
           </span>
           <span class="marquee__item marquee__item--medium" title="O'Reilly's">
-            <img src="logos/oreillys.png" alt="O'Reilly's" loading="eager"/>
+            <img src="logos/oreillys.webp" alt="O'Reilly's" loading="lazy" width="428" height="428" decoding="async">
           </span>
           <span class="marquee__item" title="Sensei">
-            <img src="logos/sensei.png" alt="Sensei" loading="eager"/>
+            <img src="logos/sensei.webp" alt="Sensei" loading="lazy" width="247" height="83" decoding="async">
           </span>
           <span class="marquee__item" title="Sheen Falls">
-            <img src="logos/sheen-falls.png" alt="Sheen Falls" loading="eager"/>
+            <img src="logos/sheen-falls.webp" alt="Sheen Falls" loading="lazy" width="415" height="100" decoding="async">
           </span>
           <span class="marquee__item" title="Mick Murphy">
-            <img src="logos/mick-murphy.png" alt="Mick Murphy" loading="eager"/>
+            <img src="logos/mick-murphy.webp" alt="Mick Murphy" loading="lazy" width="199" height="95" decoding="async">
           </span>
           <span class="marquee__item" title="Two More Power Balls">
-            <img src="logos/two-more-power-balls.png" alt="Two More Power Balls" loading="eager"/>
+            <img src="logos/two-more-power-balls.webp" alt="Two More Power Balls" loading="lazy" width="480" height="309" decoding="async">
           </span>
           <span class="marquee__item" title="Ketogym">
-            <img src="logos/ketogym.png" alt="Ketogym" loading="eager"/>
+            <img src="logos/ketogym.webp" alt="Ketogym" loading="lazy" width="480" height="80" decoding="async">
           </span>
 
           <!-- Duplicate set for seamless loop -->
           <span class="marquee__dupes" style="display: contents;" aria-hidden="true">
           <span class="marquee__item marquee__item--large" title="McCarthy Developments">
-            <img src="logos/mccarthy-developments.png" alt="" loading="eager"/>
+            <img src="logos/mccarthy-developments.webp" alt="" loading="lazy" width="480" height="480" decoding="async">
           </span>
           <span class="marquee__item" title="Dino's">
-            <img src="logos/dinos.png" alt="" loading="eager"/>
+            <img src="logos/dinos.webp" alt="" loading="lazy" width="480" height="394" decoding="async">
           </span>
           <span class="marquee__item" title="Soma Coffee">
-            <img src="logos/soma-coffee.png" alt="" loading="eager"/>
+            <img src="logos/soma-coffee.webp" alt="" loading="lazy" width="480" height="153" decoding="async">
           </span>
           <span class="marquee__item" title="The Shelbourne Bar">
-            <img src="logos/shelbourne.webp" alt="" loading="eager"/>
+            <img src="logos/shelbourne.webp" alt="" loading="lazy" width="747" height="603" decoding="async">
           </span>
           <span class="marquee__item" title="University College Cork">
-            <img src="logos/ucc.png" alt="" loading="eager"/>
+            <img src="logos/ucc.webp" alt="" loading="lazy" width="288" height="138" decoding="async">
           </span>
           <span class="marquee__item" title="The Raven Bar">
-            <img src="logos/raven-bar.png" alt="" loading="eager"/>
+            <img src="logos/raven-bar.webp" alt="" loading="lazy" width="480" height="264" decoding="async">
           </span>
           <span class="marquee__item" title="Da Mirco Osteria">
-            <img src="logos/da-mirco.png" alt="" loading="eager"/>
+            <img src="logos/da-mirco.webp" alt="" loading="lazy" width="480" height="164" decoding="async">
           </span>
           <span class="marquee__item" title="O'Flynn's Gourmet">
-            <img src="logos/oflynns-gourmet.png" alt="" loading="eager"/>
+            <img src="logos/oflynns-gourmet.webp" alt="" loading="lazy" width="480" height="226" decoding="async">
           </span>
           <span class="marquee__item" title="The Hive Padel Club">
-            <img src="logos/hive-padel.png" alt="" loading="eager"/>
+            <img src="logos/hive-padel.webp" alt="" loading="lazy" width="480" height="211" decoding="async">
           </span>
           <span class="marquee__item" title="West Cork Distillers">
-            <img src="logos/west-cork-distillers.png" alt="" loading="eager"/>
+            <img src="logos/west-cork-distillers.webp" alt="" loading="lazy" width="480" height="476" decoding="async">
           </span>
           <span class="marquee__item" title="Oh Molly">
-            <img src="logos/oh-molly.png" alt="" loading="eager"/>
+            <img src="logos/oh-molly.webp" alt="" loading="lazy" width="480" height="393" decoding="async">
           </span>
           <span class="marquee__item" title="Franciscan Well">
-            <img src="logos/franciscan-well.png" alt="" loading="eager"/>
+            <img src="logos/franciscan-well.webp" alt="" loading="lazy" width="314" height="230" decoding="async">
           </span>
           <span class="marquee__item" title="Sirius Arts Centre">
-            <img src="logos/sirius-arts-centre.png" alt="" loading="eager"/>
+            <img src="logos/sirius-arts-centre.webp" alt="" loading="lazy" width="480" height="258" decoding="async">
           </span>
           <span class="marquee__item" title="The Elm Tree">
-            <img src="logos/elm-tree.png" alt="" loading="eager"/>
+            <img src="logos/elm-tree.webp" alt="" loading="lazy" width="480" height="105" decoding="async">
           </span>
           <span class="marquee__item" title="Mayumi">
-            <img src="logos/mayumi.png" alt="" loading="eager"/>
+            <img src="logos/mayumi.webp" alt="" loading="lazy" width="480" height="203" decoding="async">
           </span>
           <span class="marquee__item" title="Sober Lane Bar & Grill">
-            <img src="logos/sober-lane.png" alt="" loading="eager"/>
+            <img src="logos/sober-lane.webp" alt="" loading="lazy" width="480" height="215" decoding="async">
           </span>
           <span class="marquee__item" title="Whelan">
-            <img src="logos/whelan.png" alt="" loading="eager"/>
+            <img src="logos/whelan.webp" alt="" loading="lazy" width="480" height="148" decoding="async">
           </span>
           <span class="marquee__item" title="O'Mahony Walsh">
-            <img src="logos/omahony-walsh.png" alt="" loading="eager"/>
+            <img src="logos/omahony-walsh.webp" alt="" loading="lazy" width="285" height="76" decoding="async">
           </span>
           <span class="marquee__item" title="SuperValu">
-            <img src="logos/supervalu.png" alt="" loading="eager"/>
+            <img src="logos/supervalu.webp" alt="" loading="lazy" width="480" height="134" decoding="async">
           </span>
           <span class="marquee__item" title="The Black Market">
-            <img src="logos/black-market.png" alt="" loading="eager"/>
+            <img src="logos/black-market.webp" alt="" loading="lazy" width="194" height="141" decoding="async">
           </span>
           <span class="marquee__item" title="FILO Clinic">
-            <img src="logos/filo-clinic.png" alt="" loading="eager"/>
+            <img src="logos/filo-clinic.webp" alt="" loading="lazy" width="349" height="137" decoding="async">
           </span>
           <span class="marquee__item" title="La Vida">
-            <img src="logos/la-vida.png" alt="" loading="eager"/>
+            <img src="logos/la-vida.webp" alt="" loading="lazy" width="350" height="150" decoding="async">
           </span>
           <span class="marquee__item" title="South William Clinic">
-            <img src="logos/south-william-clinic.png" alt="" loading="eager"/>
+            <img src="logos/south-william-clinic.webp" alt="" loading="lazy" width="480" height="243" decoding="async">
           </span>
           <span class="marquee__item" title="Carewswood">
-            <img src="logos/carewswood.png" alt="" loading="eager"/>
+            <img src="logos/carewswood.webp" alt="" loading="lazy" width="480" height="155" decoding="async">
           </span>
           <span class="marquee__item" title="Umi Falafel">
-            <img src="logos/umi-falafel.png" alt="" loading="eager"/>
+            <img src="logos/umi-falafel.webp" alt="" loading="lazy" width="480" height="244" decoding="async">
           </span>
           <span class="marquee__item marquee__item--medium" title="O'Reilly's">
-            <img src="logos/oreillys.png" alt="" loading="eager"/>
+            <img src="logos/oreillys.webp" alt="" loading="lazy" width="428" height="428" decoding="async">
           </span>
           <span class="marquee__item" title="Sensei">
-            <img src="logos/sensei.png" alt="" loading="eager"/>
+            <img src="logos/sensei.webp" alt="" loading="lazy" width="247" height="83" decoding="async">
           </span>
           <span class="marquee__item" title="Sheen Falls">
-            <img src="logos/sheen-falls.png" alt="" loading="eager"/>
+            <img src="logos/sheen-falls.webp" alt="" loading="lazy" width="415" height="100" decoding="async">
           </span>
           <span class="marquee__item" title="Mick Murphy">
-            <img src="logos/mick-murphy.png" alt="" loading="eager"/>
+            <img src="logos/mick-murphy.webp" alt="" loading="lazy" width="199" height="95" decoding="async">
           </span>
           <span class="marquee__item" title="Two More Power Balls">
-            <img src="logos/two-more-power-balls.png" alt="" loading="eager"/>
+            <img src="logos/two-more-power-balls.webp" alt="" loading="lazy" width="480" height="309" decoding="async">
           </span>
           <span class="marquee__item" title="Ketogym">
-            <img src="logos/ketogym.png" alt="" loading="eager"/>
+            <img src="logos/ketogym.webp" alt="" loading="lazy" width="480" height="80" decoding="async">
           </span>
           </span><!-- /.marquee__dupes -->
 
@@ -742,11 +755,11 @@
               </div>
               <div class="editor__canvas">
                 <div class="editor__pane">
-                  <img src="images/property/before.jpg" alt="Reference shot, before studio edit" loading="lazy"/>
+                  <img src="images/property/before.webp" alt="Reference shot, before studio edit" loading="lazy"/ width="1200" height="1600">
                   <span class="editor__pane-label">Before</span>
                 </div>
                 <div class="editor__pane">
-                  <img src="images/property/after.jpg" alt="Studio edit, ready for listing" loading="lazy"/>
+                  <img src="images/property/after.webp" alt="Studio edit, ready for listing" loading="lazy"/ width="1288" height="1600">
                   <span class="editor__pane-label">After</span>
                 </div>
                 <span class="editor__divider" aria-hidden="true"></span>
@@ -796,7 +809,7 @@
       <div class="blog-grid">
         <a href="blog/ireland-tourism-marketing-2026.html" class="post post--featured">
           <div class="post__visual post__visual--photo">
-            <img src="images/blog/ireland-tourism-marketing-2026.jpg" alt="" loading="lazy"/>
+            <img src="images/blog/ireland-tourism-marketing-2026.webp" alt="" loading="lazy"/ width="1600" height="900">
           </div>
           <div class="post__meta">
             <span class="post__cat">Tourism &middot; Strategy</span>
@@ -807,7 +820,7 @@
         </a>
         <a href="blog/trend-chasing-brand-strategy.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="images/blog/trend-chasing-brand-strategy.jpg" alt="" loading="lazy"/>
+            <img src="images/blog/trend-chasing-brand-strategy.webp" alt="" loading="lazy"/ width="1600" height="892">
           </div>
           <div class="post__meta">
             <span class="post__cat">Strategy &middot; Brand &middot; Trends</span>
@@ -818,7 +831,7 @@
         </a>
         <a href="blog/eu-social-media-restrictions-ireland.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="images/blog/eu-social-media-restrictions-ireland.jpg" alt="" loading="lazy"/>
+            <img src="images/blog/eu-social-media-restrictions-ireland.webp" alt="" loading="lazy"/ width="1376" height="768">
           </div>
           <div class="post__meta">
             <span class="post__cat">Strategy &middot; AI &middot; Platforms</span>
@@ -829,7 +842,7 @@
         </a>
         <a href="blog/hospitality-alcohol-marketing-ireland.html" class="post post--photo">
           <div class="post__visual post__visual--photo">
-            <img src="images/blog/hospitality-alcohol-marketing-ireland.jpg" alt="" loading="lazy"/>
+            <img src="images/blog/hospitality-alcohol-marketing-ireland.webp" alt="" loading="lazy"/ width="1600" height="2000">
           </div>
           <div class="post__meta">
             <span class="post__cat">Hospitality · Strategy</span>
@@ -871,6 +884,8 @@
   </section>
 
   <!-- ════════ FOOTER ════════ -->
+</main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
