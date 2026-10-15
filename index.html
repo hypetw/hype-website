@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,13 +44,14 @@
       "alternateName": ["HYPE Digital", "HYPE Marketing & Media"],
       "description": "Cork creative agency making brand films, documentaries and social media content for hospitality, leisure and property brands across Ireland.",
       "url": "https://www.hypedigital.ie/",
-      "logo": "https://www.hypedigital.ie/hype-logo.png",
+      "logo": "https://www.hypedigital.ie/images/hype-og-image.jpg",
       "image": "https://www.hypedigital.ie/images/hype-og-image.jpg",
       "email": "hello@hypedigital.ie",
       "priceRange": "€€€",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Cork",
+        "addressRegion": "County Cork",
         "addressCountry": "IE"
       },
       "areaServed": [
@@ -57,15 +59,34 @@
         { "@type": "AdministrativeArea", "name": "County Cork" },
         { "@type": "Country", "name": "Ireland" }
       ],
-      "founder": {
-        "@type": "Person",
-        "name": "Tiago Carvalho",
-        "jobTitle": "CEO & Founder",
-        "sameAs": ["https://www.linkedin.com/in/tiagocarvalhoco"]
-      },
-      "foundingDate": "2019",
-      "numberOfEmployees": {"@type": "QuantitativeValue", "minValue": 2, "maxValue": 10},
-      "knowsAbout": ["Brand film production", "Documentary production", "Social media management", "Paid social advertising", "Hospitality marketing", "Property marketing", "PR and brand positioning"],
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Tiago Carvalho",
+          "jobTitle": "CEO & Co-founder",
+          "sameAs": ["https://www.linkedin.com/in/tiagocarvalhoco"]
+        },
+        {
+          "@type": "Person",
+          "name": "Andrea Williams",
+          "jobTitle": "Co-founder & Content Director"
+        }
+      ],
+      "award": "Best Use of Digital by a Start-Up at the Cork Digital Marketing Awards 2020",
+      "knowsAbout": [
+        "Brand film production",
+        "Documentary production",
+        "Video production",
+        "Social media management",
+        "Paid social advertising",
+        "PR and brand positioning",
+        "Website design",
+        "Photography",
+        "Drone filming",
+        "Graphic design and branding",
+        "Hospitality marketing",
+        "Property marketing"
+      ],
       "sameAs": [
         "https://www.instagram.com/hypedigital.ie",
         "https://www.linkedin.com/company/hypedigitalnow",
@@ -311,7 +332,8 @@
       <div class="who">
         <div class="who__text">
           <p>
-            HYPE is a full-service creative agency based in <strong>Cork, Ireland</strong>. We produce documentaries, manage brands, create content that moves people, and through HYPE Listing Studio, produce editorial property content for developers and premium estate agencies.
+            HYPE is a Cork creative agency making <a href="/services/brand-films-ireland">brand films</a>, <a href="/services/social-media-management-cork">social media</a> and PR for hospitality, leisure, retail, food, drink and property brands across Ireland. Film, social and PR under one roof, one creative direction across every asset.
+            <br/><br/>Won <a href="https://www.echolive.ie/corknews/arid-40097453.html" target="_blank" rel="noopener">Best Use of Digital by a Start-Up at the Cork Digital Marketing Awards 2020</a>, in our first year. 22+ active clients today, and every client message answered within 24 hours.
             <br/><br/>We don't do average.
           </p>
         </div>
@@ -520,6 +542,7 @@
           </span>
 
           <!-- Duplicate set for seamless loop -->
+          <span class="marquee__dupes" style="display: contents;" aria-hidden="true">
           <span class="marquee__item marquee__item--large" title="McCarthy Developments">
             <img src="logos/mccarthy-developments.png" alt="" loading="eager"/>
           </span>
@@ -613,6 +636,7 @@
           <span class="marquee__item" title="Ketogym">
             <img src="logos/ketogym.png" alt="" loading="eager"/>
           </span>
+          </span><!-- /.marquee__dupes -->
 
         </div>
       </div>
@@ -901,7 +925,7 @@
         </div>
       </div>
       <div class="footer__nap">
-        <span>HYPE</span> &middot; Cork, Ireland &middot; <a href="mailto:hello@hypedigital.ie">hello@hypedigital.ie</a>
+        <span>HYPE</span> &middot; Cork, Ireland &middot; <a href="mailto:hello@hypedigital.ie">hello@hypedigital.ie</a> &middot; Every message answered within 24 hours
       </div>
       <div class="footer__bottom">
         <span>© 2026 HYPE Marketing &amp; Media</span>

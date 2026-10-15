@@ -4,7 +4,7 @@
    Dark & Premium · Red #E63946 on Black #0A0A0A
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Google Fonts moved to <link> in each page <head> for parallel loading. */
 
 /* ---------- Tokens ---------- */
 :root {
@@ -1937,6 +1937,57 @@ a.world__chip:hover {
   margin-inline: auto;
 }
 
+.article__author {
+  max-width: 720px;
+  margin: 56px auto 0;
+  padding: 32px 36px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+}
+.article__author-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+.article__author-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.015em;
+  margin: 8px 0 2px;
+}
+.article__author-role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin: 0 0 16px;
+}
+.article__author-bio {
+  color: var(--fg-muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+  margin: 0 0 16px;
+}
+.article__author-links {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+}
+.article__author-links a {
+  color: var(--fg);
+  border-bottom: 1px solid var(--accent);
+  transition: color var(--dur) var(--ease);
+  margin: 0 4px;
+}
+.article__author-links a:hover { color: var(--accent); }
+
 .article__keywords {
   max-width: 720px;
   margin: 64px auto 0;
@@ -2104,6 +2155,108 @@ a.world__chip:hover {
   height: 1px;
   background: var(--accent);
 }
+.svc__includes p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  margin-bottom: 20px;
+  max-width: 72ch;
+}
+.svc__includes p strong { color: var(--fg); font-weight: 600; }
+.svc__includes p a { color: var(--fg); border-bottom: 1px solid var(--accent); transition: color var(--dur) var(--ease); }
+.svc__includes p a:hover { color: var(--accent); }
+.svc__includes h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 24px 0 8px;
+  letter-spacing: -0.01em;
+}
+.svc__steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+.svc__steps li {
+  position: relative;
+  padding: 20px 0 20px 56px;
+  border-bottom: 1px solid var(--border);
+  font-size: 1rem;
+  color: var(--fg-muted);
+  counter-increment: step;
+}
+.svc__steps li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+}
+.svc__steps li strong { color: var(--fg); font-weight: 600; }
+.svc__quote {
+  margin: 40px 0;
+  padding: 32px 36px;
+  background: var(--bg-elevated);
+  border-left: 2px solid var(--accent);
+}
+.svc__quote p {
+  font-family: var(--font-serif, var(--font-display));
+  font-style: italic;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--fg);
+  margin: 0 0 16px;
+  max-width: none;
+}
+.svc__quote footer {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.svc__price {
+  padding: 28px 32px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  margin-bottom: 20px;
+}
+.svc__price strong { color: var(--fg); }
+.svc__faq { border-top: 1px solid var(--border); }
+.svc__faq details {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.svc__faq summary {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--fg);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: -0.01em;
+}
+.svc__faq summary::-webkit-details-marker { display: none; }
+.svc__faq summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--accent);
+  transition: transform var(--dur) var(--ease);
+}
+.svc__faq details[open] summary::after { content: '−'; }
+.svc__faq details p {
+  margin-top: 12px;
+  color: var(--fg-muted);
+  line-height: 1.7;
+  font-size: 1rem;
+  max-width: 72ch;
+}
 .svc__cta {
   max-width: 720px;
   margin: 0 auto;
@@ -2119,6 +2272,63 @@ a.world__chip:hover {
   font-weight: 700;
   margin-bottom: 24px;
   letter-spacing: -0.02em;
+}
+
+/* ---------- Related services (service pages) ---------- */
+.svc-related {
+  padding-block: clamp(72px, 9vw, 112px);
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+}
+.svc-related__heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.svc-related__heading em { font-style: normal; color: var(--accent); }
+.svc-related__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.svc-related__card {
+  position: relative;
+  display: block;
+  padding: 32px;
+  background: var(--bg-soft);
+  color: inherit;
+  text-decoration: none;
+  transition: background var(--dur) var(--ease);
+}
+.svc-related__card:hover { background: var(--bg-elevated); }
+.svc-related__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
+  color: var(--fg);
+}
+.svc-related__blurb {
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.svc-related__arrow {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  color: var(--fg-dim);
+  transition: color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.svc-related__card:hover .svc-related__arrow {
+  color: var(--accent);
+  transform: translateX(4px);
 }
 
 /* ============================================================
