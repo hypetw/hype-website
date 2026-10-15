@@ -109,6 +109,10 @@ p { margin: 0; }
   align-items: center;
   gap: 12px;
 }
+h2.label--heading {
+  margin: 0;
+  line-height: inherit;
+}
 .label::before {
   content: '';
   width: 24px; height: 1px;
