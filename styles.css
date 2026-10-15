@@ -1704,7 +1704,8 @@ a.world__chip:hover {
   line-height: 1.6;
   margin-top: 24px;
 }
-.footer__col h4 {
+.footer__col h4,
+.footer__col .footer-title {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
